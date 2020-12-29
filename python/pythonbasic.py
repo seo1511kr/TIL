@@ -167,16 +167,46 @@ print("안녕",end="^_^");print("하세요") #안녕^_^하세요
 # y ="two"
 # per = 30
 # print("I eat %s eggs. so I was sick for %d days. %d%%" % (y,x,per))
-k = ()
-print(type(k))
-i = ("파")
-print(type(i))
+# k = ()
+# print(type(k))
+# i = ("파")
+# print(type(i)) #type 이 str
+# i =("파",)
+# print(type(i))
 
-# hw = ("파이썬"*3)
-# acc = ()
-# for i in hw:
+
+#hw201229 3번
+# s = ("파이썬"*3)
+# a=""
+# for i in s:
 #     if i == "파":
-#         i_tuple = (i)
-#         acc = (acc+i_tuple)
-#     print(acc,sep='')
+#         a=a+i
+#     else:
+#         a =a
+# print(a)
 
+# print("파"*a)
+#
+# c =""+"파"
+# print(c)
+
+
+
+# x1,x2 = map(int, input("숫자 두 개 입력 : ").split())
+# print(x1)
+# print(x1+x2)
+# print(input("숫자 두 개 입력:").split())
+# ['1', '2']로 출력이 됨
+
+# map 은 list 나 set 형태로 표현할 수 있음
+
+#질문: map의 객체는 1회성인가요??
+# 밑의 두 결과의 차이를 모르겠습니다!
+# x = map(int, "5")
+# print(list(x))
+# x = map(int, "5") #다시 x를 지정해주지 않으면 공백의 set이 나옴
+# print(set(x))
+#
+# x={5}
+# print(list(x))
+# print(set(x)) #다시 x를 지정해주지 않아도 됨
