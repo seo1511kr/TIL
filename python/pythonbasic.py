@@ -167,3 +167,16 @@ print("안녕",end="^_^");print("하세요") #안녕^_^하세요
 # y ="two"
 # per = 30
 # print("I eat %s eggs. so I was sick for %d days. %d%%" % (y,x,per))
+k = ()
+print(type(k))
+i = ("파")
+print(type(i))
+
+# hw = ("파이썬"*3)
+# acc = ()
+# for i in hw:
+#     if i == "파":
+#         i_tuple = (i)
+#         acc = (acc+i_tuple)
+#     print(acc,sep='')
+
