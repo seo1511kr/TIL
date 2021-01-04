@@ -179,7 +179,7 @@
 # print(random.randint(1,10))
 
 
-# # methon(함수) 체이닝(chaining)
+# # method(함수) 체이닝(chaining)
 #
 # print('python'.rjust(10))
 # s ='python'.rjust(10)
