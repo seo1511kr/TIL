@@ -9,8 +9,12 @@ movie_rank=["닥터 스트레인지","스플릿","럭키"]
 print(movie_rank)
 #
 # 2. movie_rank 리스트에 "배트맨"을 추가하라.
+
 movie_rank=movie_rank+["배트맨"]
 print(movie_rank)
+# append 사용 가능
+# movie_rank.append("배트맨") # extend도 가능
+
 #
 # 3. movie_rank 리스트에는 아래와 같이 네 개의 영화 제목이 바인딩되어 있다. "슈퍼맨"을 "닥터 스트레인지"와 "스플릿" 사이에 추가하라.
 # movie_rank = ['닥터 스트레인지', '스플릿', '럭키', '배트맨']
@@ -18,6 +22,9 @@ movie_0=[movie_rank[0]]+['슈퍼맨']
 movie_1=movie_rank[1:]
 movie_rank=movie_0+movie_1
 print(movie_rank)
+# insert 활용가능
+# movie_rank.insert(1,"슈퍼맨")
+
 # 4. movie_rank 리스트에서 '럭키'를 삭제하라.
 # movie_rank = ['닥터 스트레인지', '슈퍼맨', '스플릿', '럭키', '배트맨']
 del movie_rank[3]
@@ -31,6 +38,7 @@ print(movie_rank)
 #
 price = ['20180728', 100, 130, 140, 150, 160, 170]
 print(price[1:])
+print(price[slice(1,7)])
 # 출력 예시:
 # [100, 130, 140, 150, 160, 170]
 
@@ -42,6 +50,7 @@ print(nums[0::2])
 #
 nums = [1, 2, 3, 4, 5]
 print(nums[-1::-1])
+print(nums[::-1])
 # 실행 예:
 # [5, 4, 3, 2, 1]
 #
@@ -49,8 +58,8 @@ print(nums[-1::-1])
 # 9.interest 리스트에는 아래의 데이터가 저장되어 있다.
 #
 interest = ['삼성전자', 'LG전자', 'Naver']
-del interest[1]
-print(" ".join(interest))
+print(interest[::2])
+print(" ".join(interest[::2]))
 # interest 리스트를 사용하여 아래와 같이 화면에 출력하라.
 #
 # 출력 예시:
@@ -83,9 +92,13 @@ print("\n".join(interest))
 #
 # 12. 리스트에 있는 값을 오름차순으로 정렬하세요.
 data = [2, 4, 3, 1, 5, 10, 9]
-data.sort()
-print(data)
-#
+print(sorted(data)) # sorted() 는 바로 출력이 됨
+print(data)  # 원래 데이터는 변동 x
+data.sort()  # data.sort() 를 print할 경우에는 None이 나옴
+print(data)  # 원래 데이터 자체가 정렬됨
+
+
+
 # 13.
 # 홍길동 씨의 주민등록번호는 881120-1068234이다. 홍길동 씨의 주민등록번호를 연월일(YYYYMMDD) 부분과 그 뒤의 숫자 부분으로 나누어 출력해 보자.
 # ※ 문자열 슬라이싱 기법을 사용해 보자.
@@ -124,4 +137,52 @@ print(a)
 # 아니면 바로
 a = {'A':90, 'B':80, 'C':70}
 print(a.pop("B"))
-# ※ 딕셔너리의 pop 함수를 사용해 보자.
+# 딕셔너리의 pop 함수를 사용해 보자.
+# 딕셔너리의 pop 함수는 키 값을 입력해줘야 작동한다.
+
+# 리뷰 --------------------------------------------------
+# 최대, 최소, 합, 평균
+# max()/min()/sum()/len()
+num=[5,1,4,3,2]
+print(max(num))
+print(min(num))
+print(sum(num))
+print(len(num))
+mean=sum(num)/len(num)
+print(mean)
+
+# sort()/sorted()
+num=[1,2,3,9,2,2,4,7]
+print(sorted(num)) # sorted() 는 바로 출력이 됨
+print(num)         # 원래 데이터는 변동 x
+num.sort()
+print(num.sort())  # data.sort() 를 print할 경우에는 None이 나옴
+print(num)         # 원래 데이터 자체가 정렬됨
+
+# 딕셔너리에서 .pop()
+a = {'A':90, 'B':80, 'C':70}
+print(a.pop("B"))
+
+# 딕셔너리에서 변수 추가
+a={}
+print(a)
+a["a"]='python'
+print(a)
+a[250]='python'
+print(a)
+a[("c",)]='python'
+print(a)
+# 딕셔너리 키 값에는 변하지 않는 상수만 가능
+# a[[1]]='python' 에서 [1]은 리스트라 키 값이 될 수 있음
+
+# .append(""), .extend(("","","")))
+movie_rank=["닥터 스트레인지","스플릿","럭키"]
+movie_rank.append(("어벤져스","엔드게임"))     # 튜플로 추가됨
+print(movie_rank)
+movie_rank.extend(("터미네이터","반지의 제왕")) # 각각 요소로 추가됨
+print(movie_rank)
+
+# .insert(위치,"")
+movie_rank.insert(3,"광해")
+print(movie_rank)
+
