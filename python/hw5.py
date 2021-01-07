@@ -86,29 +86,29 @@
 
 # # 8. 구글 입사 test
 # #=================================================================================
-k=314412321347813749813748913481238128132793712372183781739127
-m=9
-k=str(k)
-num=0
-len=len(k)
-for i in range(len):
-    if int(k[i]) > m:
-        num=num+int(k[i])*10**(len-2-i)*(len-1-i)+10**(len-1-i)
-    elif int(k[i]) == m:
-        num=num+int(k[i])*10**(len-2-i)*(len-1-i)
-        if i+1!=len:
-          num+=int(k[i + 1:]) + 1
-        else: num+=1
-    else :num=num+int(k[i])*10**(len-2-i)*(len-1-i)
-print(num)
-# #=================================================================================
-
-# 1부터 10,000까지 8이라는 숫자가 총 몇번 나오는가?
-num=0
-for i in range(1,314412321347813749813748913481238128132793712372183781739127):
-    lstri=list("{0}".format(i))
-    num+=lstri.count("9")
-print(num)
+# k=314412321347813749813748913481238128132793712372183781739127
+# m=9
+# k=str(k)
+# num=0
+# len=len(k)
+# for i in range(len):
+#     if int(k[i]) > m:
+#         num=num+int(k[i])*10**(len-2-i)*(len-1-i)+10**(len-1-i)
+#     elif int(k[i]) == m:
+#         num=num+int(k[i])*10**(len-2-i)*(len-1-i)
+#         if i+1!=len:
+#           num+=int(k[i + 1:]) + 1
+#         else: num+=1
+#     else :num=num+int(k[i])*10**(len-2-i)*(len-1-i)
+# print(num)
+# # #=================================================================================
+#
+# # 1부터 10,000까지 8이라는 숫자가 총 몇번 나오는가?
+# num=0
+# for i in range(1,10001):
+#     stri="{0}".format(i)
+#     num+=stri.count("9")
+# print(num)
 
 
 # 8이 포함되어 있는 숫자의 갯수를 카운팅 하는 것이 아니라 8이라는 숫자를 모두 카운팅 해야 한다.
@@ -125,7 +125,9 @@ print(num)
 # print(count)
 
 
-#
+# range(1,10001)을 한방에 전체 str로 변경하는 법
+# list로 먼저 range를 감싼 후에 str적용
+# str(list(range())).count
 # count_8 = str(list(range(1, 314414781374981374891348123812))).count('9')
 #
 # print(count_8)
@@ -134,4 +136,19 @@ print(num)
 #_+=========================================================
 
 
+#count 함수 만들기
+num=0
+k=102321232
+j=2
 
+def mycount(what,where):
+    strwhat="%d"%what
+    strwhere="{0}".format(where)
+    for i in strwhere:
+        if strwhat == i:
+            global num
+            num+=1
+        else:pass
+    return num
+
+print(mycount(j,k))
