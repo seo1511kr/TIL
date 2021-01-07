@@ -126,3 +126,79 @@ IOT 환경에서는 모든 사물들이 메모리를 소유하고 있음,
 # for i in range(3):
 #     f.write("%d번째 줄 추가\n" % (i+1))
 # f.close()
+
+# 클래스? 붕어빵기계=============================================================
+# 객체? 붕어빵
+# 메서드(동작)? 굽는다, 뒤집는다...
+# attribute(속성)? 내용물, 크가, 모양,너비, 높이....
+
+# res=0
+# def add(n):
+#     # n에 전달된 값을 res에 저장
+#     global res
+#     res+=n
+#     return res
+# print(add(3))
+# print(res)
+# add(4) # 3+4로 기존 값에 누적이 되어버림
+# print(res)
+
+# # 계산 결과값을 따로 저장하여 출력하는 법
+# res1=0 #전역변수
+# res2=0
+# # 1. 각각의 계산기를 만든다고 생각함
+# # 1번 계산기
+# def add1(n): #지역변수
+#     global res1
+#     res1+=n
+#     return res1
+# print(add1(3000)) #맥주
+# print(add1(5000)) #육포
+# # 2번 계산기
+# def add2(n):
+#     global res2
+#     res2+=n
+#     return res2
+# print(add2(1500)) #막걸리
+# print(add2(2000)) #두부
+#
+# # 수많은 계산기가 필요한 경우 class 만든 후 for문
+# # 혹은 계산 방식의 변화가 필요한 경우
+# # 각각의 계산대를 객체로 간주하고, 계산대의 특성또는 동작등을 일반화시켜 놓은 틀
+# # the car(객체): 실체가 있음
+# # a car(클래스): 실체가 없음
+# print("="*40)
+# class Calculator: #클래스명은 대문자로 시작하는 것이 관례
+#     def __init__(self): #호출하지 않아도 클래스로부터 객체를 생성하는 시점에 자동호출
+#                         # self는 생성된 객체 자신
+#         self.res=0      #res는 0으로 초기화 작업 실시
+#         print("init함수가 호출됐네?")
+#     def add(self,n):
+#         self.res+=n
+#         # 10%할인 코드를 여기에 작성 -> 모든 계산대에 공통적으로 적용
+#         return self.res
+# #Calculator(): 붕어빵기계에서 붕어빵을 제작 ->__init__자동호출->res(내용물)
+# cal1=Calculator() # 클래스로부터 객체를 생성. 계산대(클래스)로부터 계산대1(객체)을 생성
+# cal2=Calculator() # 클래스로부터 객체를 생성. 계산대(클래스)로부터 계산대2(객체)을 생성
+#
+# print(cal1.add(3000)) #붕어빵.크기(30)
+# print(cal1.add(5000)) #붕어빵.너비(50)
+#
+# print(cal2.add(1500)) #붕어빵.크기(15)
+# print(cal2.add(2000)) #붕어빵.너비(20)
+
+#객체지향프로그래밍?
+
+# #모듈?변수, 함수, 클래스 등을 모아 놓은 파이썬 파일. 다른 프로그램에서 모듈을 불러올 수 있음
+# # print(madd(3,4)) #NameError: name 'madd' is not defined
+# import mod1
+# print(mod1.madd(1,2))
+
+# import mod1 as m #모듈(패키지)명이 길때 축약해서 표현
+# print(m.madd(1,2))
+
+# from mod1 import msub #mod1 모듈에 정의되어 있는 msub 매서드만 가져와라
+# print(msub(2,1))
+# from mod1 import msub, madd  # 연속으로 나열해도 됨
+# from mod1 import *           #모든 함수를 다 가져와라
+
