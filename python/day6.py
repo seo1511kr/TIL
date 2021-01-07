@@ -52,6 +52,7 @@ IOT 환경에서는 모든 사물들이 메모리를 소유하고 있음,
 # with open('hello.txt',"r") as f:
 #      s=f.read()
 #      print(s)
+#      print(s.index("n"))
 #      print("-"*30)
 
 # # .readline()
