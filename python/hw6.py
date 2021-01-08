@@ -160,16 +160,23 @@
 # # print(set_num)
 # print("셀프넘버:",sorted(tuple_sol))
 # print("정답:",sum(tuple_sol))
-#
+
+
+# # 같은 논라이지만 표현이 간결해서 알아보기 쉬움 ==  좋은 코드
+# not_self_num=set()
+# for i in range(1,5000):
+#     num=i+sum(map(int,str(i)))  ## 여러 함수를 조합하면 코드가 간결해짐
+#     not_self_num.add(num)
+
 
 
 #
 # # 17. 최대낙차 (삼성 기출)
-# box=(7,4,2,0,0,6,0,7,0)
+# box=(1,2,3,3,4,7,2,3)
 # def maxdrop(arg):
-#     num=0
 #     lres=[]
 #     for j in range(len(arg)):
+#         num = 0
 #         for i in arg:
 #             if arg[j] <= i:
 #                 num+=1
@@ -177,6 +184,19 @@
 #         lres.append(res)
 #     print(max(lres))
 # maxdrop(box)
-#
-#
+
+# # 오류 수정 num=0이 for 문 밖에 있어서 반복할 때
+# # 초기화되지 않고 계속 누적되는 오류가 발생함
+# # num을 첫번째 for문 안으로 넣어줌
 # # 출력 => 최대낙차:7
+
+
+# box=[1,2,3,3,4,7,2,3]
+# drop2=[]
+# for i in range(len(box)):
+#     drop1=[]
+#     for j in box[i+1:]:
+#         if box[i]>j:
+#             drop1.append(j)
+#     drop2.append(len(drop1))
+# print("최대 낙차 :",max(drop2))
