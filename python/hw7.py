@@ -1,18 +1,18 @@
 # # 1. 1차원 점들이 주어졌을 때, 그 중 가장 거리가 짧은 것의 쌍을 출력하는 함수를 작성하시오(Daum입사)
 # # ex) S={1,3,4,8,13,17,20} => [(3,4)]
 #
-# num={1,3,4,8,13,17,20,21} # ==> [(3,4),(20,21)]
-# def shortest(num):
-#     distance=[]
-#     num = list(num)
-#     pair=list(zip(num[:-1],num[1:]))
-#     for i in range(len(num)-1):
-#         distance.append(abs(num[i]-num[i+1]))
-#     res = min(distance)
-#     newpair=list(zip(num[:-1], num[1:], distance))
-#     print([i[:2] for i in newpair if i[2] == res]) # 거리가 최소인 쌍이 여러개 있어도 모두 출력
-#
-# shortest(num) # [(3,4),(20,21)]
+num={1,3,4,8,13,17,20,21} # ==> [(3,4),(20,21)]
+def shortest(num):
+    distance=[]
+    num = list(num)
+    pair=list(zip(num[:-1],num[1:]))
+    for i in range(len(num)-1):
+        distance.append(abs(num[i]-num[i+1]))
+    res = min(distance)
+    newpair=list(zip(num[:-1], num[1:], distance))
+    print([i[:2] for i in newpair if i[2] == res]) # 거리가 최소인 쌍이 여러개 있어도 모두 출력
+
+shortest(num) # [(3,4),(20,21)]
 #
 #
 #
