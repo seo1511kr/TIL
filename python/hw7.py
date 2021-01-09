@@ -13,6 +13,13 @@ def shortest(num):
     print([i[:2] for i in newpair if i[2] == res]) # 거리가 최소인 쌍이 여러개 있어도 모두 출력
 
 shortest(num) # [(3,4),(20,21)]
+
+
+
+
+
+
+short(S)
 #
 #
 #
