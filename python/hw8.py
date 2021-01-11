@@ -1,11 +1,17 @@
-# 1. 문자열 바꾸기
-# 다음과 같은 문자열이 있다.
-# a:b:c:d
-# 문자열의 split와 join 함수를 사용하여 위 문자열을 다음과 같이 고치시오.
-# a#b#c#d
-s="a:b:c:d"
-s=s.split(":")
-print("#".join(s))
+# # 1. 문자열 바꾸기
+# # 다음과 같은 문자열이 있다.
+# # a:b:c:d
+# # 문자열의 split와 join 함수를 사용하여 위 문자열을 다음과 같이 고치시오.
+# # a#b#c#d
+# s="a:b:c:d"
+# s=s.split(":")
+# print("#".join(s))
+# print(",".join("1234"))
+# print(" ".join("12345"))
+# print(",".join(["1","2","3"]))
+# print("12345".replace(""," "))
+# print("1 2 3 4 5".split(" "))
+
 # 2. 리스트 총합 구하기
 # 다음은 A학급 학생의 점수를 나타내는 리스트이다. 다음 리스트에서 60점 이상 점수의 평균을 구하시오.
 
@@ -28,6 +34,7 @@ f.write("""
 100
 """)
 f.close()
+
 
 with open("sample.txt","r") as r:
     line=r.read()
@@ -73,7 +80,7 @@ print("")
 
 def decoding(k):
     global decode
-    for i in range(len(decode.keys()))
+    for i in range(len(decode.keys())):
         list(decode.keys()).index(k)
 
 

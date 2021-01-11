@@ -19,14 +19,15 @@
 # # 3. enumerate(반복 가능한 자료형)=========================================================
 # # 열거형 데이터를 표현하는 함수, for 문과 함께 사용,
 # # 리스트, 튜플, 문자열등 (시퀀스 데이터) 입력 => 인덱스를 포함하는 enumerate 객체 생성
-# for i in ['aaa','bbb','ccc']:
-#     print(i)
-# for idx,i in enumerate(['aaa','bbb','ccc']):
-#     print(idx,i)
-# '''
-# 0 aaa
-# 1 bbb
-# 2 ccc
+for i in ['aaa','bbb','ccc']:
+    print(i)
+for idx,i in enumerate(['aaa','bbb','ccc']):
+    print(idx,i)
+print
+'''
+0 aaa
+1 bbb
+2 ccc
 # '''
 #========================================================================================
 # # 4. eval("string")
