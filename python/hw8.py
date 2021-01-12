@@ -94,8 +94,8 @@ with open("result.txt","w") as w:
 # # 단 중복의 경우는 무시해줘야함
 # # 유사도=두 리스트 사이의 겹치는 요소 개수/총 개수
 #
-# a="오늘 멀티캠퍼스에서 너무 쉬운 프로그래밍을 공부했다."
-# "멀티캠퍼스에서 공부했던 오늘의 프로그래밍은 너무 쉬웠다."
+a="오늘 멀티캠퍼스에서 너무 쉬운 프로그래밍을 공부했다."
+b="멀티캠퍼스에서 공부했던 오늘의 프로그래밍은 너무 쉬웠다."
 #
 # def simil(string,n):
 #     global a
@@ -121,7 +121,7 @@ with open("result.txt","w") as w:
 class Ngram:
     def __init__(self):
         self.res=0
-    def ngram(self, n):
+    def ngram(self,string, n):
         global a
         a = a.strip(".")
         sa = set()
@@ -136,6 +136,10 @@ class Ngram:
         print("공통:", [i for i in sa if i in sstring])
         self.res=len([i for i in sa if i in sstring]) / len(sstring)
         return self.res
+n2=Ngram()
+n3=Ngram()
+print(n2.ngram(b,2))
+print(n3.ngram(b,3))
 
         # print(sstring.intersection(sa))
         # print(len(sstring.intersection(sa))/len(sstring))
@@ -170,31 +174,7 @@ class Ngram:
 
 a="오늘 멀티캠퍼스에서 너무 쉬운 프로그래밍을 공부했다"
 b="멀티캠퍼스에서 공부했던 오늘의 프로그래밍은 너무 쉬웠다"
-n=3
-def ngram(s,num): #ngram 기능만 따로 분리
-    slen=len(s)-num+1
-    res=[]
-    for i in range(slen):
-        ss=s[i:i+num]
-        res.append(ss)
-    return res
-def diff_ngram(sa,sb,num): #위 ngram의 res변수를 diff_ngram에서도 사용하고 싶을때
-    a=ngram(sa,num)        # return res를 작성해준 후 그 값을 다시 변수 a에 저장
-    b=ngram(sb,num)
-    cnt=0 # 일치한 단어의 개수를 저장하기 위한 변수
-    r=[]  # 일치한 단어를 저장하기 위한 변수
-    for i in a:
-        for j in b:
-            if i==j:
-                cnt+=1
-                r.append(i)
-    return cnt/len(a), r
-r,word= diff_ngram(a,b,n)
-print("%d-gram"%n,r,word) #유사도, bigram으로  묶인 단어셋
-
-
-# 중복 x, 길이가 긴 문장이 분모로가는 조건 추가
-# ======================================================================================
+n=2
 def ngram(s,num): #ngram 기능만 따로 분리
     slen=len(s)-num+1
     res=set()
@@ -205,8 +185,6 @@ def ngram(s,num): #ngram 기능만 따로 분리
 def diff_ngram(sa,sb,num): #위 ngram의 res변수를 diff_ngram에서도 사용하고 싶을때
     a=ngram(sa,num)        # return res를 작성해준 후 그 값을 다시 변수 a에 저장
     b=ngram(sb,num)
-    if len(a)>=len(b):lengram=len(a)
-    else: lengram=len(b)
     cnt=0 # 일치한 단어의 개수를 저장하기 위한 변수
     r=[]  # 일치한 단어를 저장하기 위한 변수
     for i in a:
@@ -214,7 +192,12 @@ def diff_ngram(sa,sb,num): #위 ngram의 res변수를 diff_ngram에서도 사용
             if i==j:
                 cnt+=1
                 r.append(i)
-    return cnt/lengram, r
-n=2
+    if len(a)>len(b):
+        return cnt/len(a), r
+    else:return cnt/len(b), r
 r,word= diff_ngram(a,b,n)
 print("%d-gram"%n,r,word) #유사도, bigram으로  묶인 단어셋
+#
+#
+# 중복 x, 길이가 긴 문장이 분모로가는 조건 추가
+# ======================================================================================
