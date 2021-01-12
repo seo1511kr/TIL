@@ -111,147 +111,147 @@ print(re.match("(^01)\d{3}[-]\d{4}[-]\d{4}","010-1212-3434"))
 # finditer: 정규식과 매치되는 모든 문자열을 반복가능한 객체로 return
 
 
-# 정석 과정
-pat=re.compile("[a-z]+")  #정의한 패턴을 pat에 저장
-print(pat.match("python"))#패턴객체(pat)가 가지고 있는 match함수를 이용하여 주어진
-                          # 문자열이 패턴에 매치되는지 확인
-
-print(re.match("[a-z]+","7python"))
-print(re.search("[a-z]+","7python"))
-print(re.search("[a-z]+","7python8java9cpp"))
-print(re.search("[a-z]+","7python8java9cpp"))
-print(re.findall("[a-z]+","7python8java9cpp"))
-
-pat=re.compile("[a-z]+")
-res=pat.findall("7python8java9cpp")
-print(res)
-pat=re.compile("[0-9]+")
-res=pat.findall("7python8java9cpp")
-print(res)
-
-res=re.finditer("[a-z]+","7python8java9cpp") # 반복 가능한 객체로 리턴
-for i in res:
-    print(i)
-    print(i.start())
-    print(i.end())
-    print(i.span())
-    print(i.group())
-
-# .: 점(.) 메타문자는 모든 문자 1개와 매치(예외: "\n")
-print(re.match("a.b","a0b"))
-print(re.match("a.b","a\nb"))
-print(re.match("a.b","a\nb",re.DOTALL))
-
-pat=re.compile("a.b",re.DOTALL)
-print(pat.match("a\nb"))
-
-# 대소문자 무시
-pat=re.compile("[a-z]+",re.I) #ignorecase
-print(pat.match("PYTHON"))
-
-
-# \문자 \ 그 자체로 매치하기
-print(re.search("\section",'jwejjroijisdfie dfi er \section sdfki'))
-# \s가 \section이 아닌 메타문자로 해석됨
-print(re.search("\section",'jwejjroijisdfie dfi er ection sdfki'))
-print(re.search("\\\section",'jwejjroijisdfie dfi er \section sdfki'))
-print(re.search(r"\\section",'jwejjroijisdfie dfi er \section sdfki'))
-# r"\\section => \section
-
-print(re.match("ab[0-9]?","abc"))
-print(re.match("ab[0-9]?c","ab9c"))
-print(re.match("ab.c","ab9c"))
-print(re.match("h{3}","hhhiii"))
-print(re.match("h{3}","hihihihelloworld"))
-
-# () :grouping
-print(re.match("hi{3}","hihihihelloworld"))
-print(re.match("(hi){3}","hihihihelloworld"))
-print(re.match("(hi){3,5}","hihihihelloworld"))
-print(re.match("[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}","042-1234-5678"))
-
-print(re.match('[ㄱ-ㅎ]+','ㅋㅋㅋㅋㅋㅋㅋ캬캬캬ㅎㅎㅎㅎ'))
-print(re.match('[ㄱ-ㅎ가-힣]+','ㅋㅋㅋㅋㅋㅋㅋ캬캬캬ㅎㅎㅎㅎ'))
-print(re.match('[ㄱ-ㅎ가-힣]+','ㅋㅋㅋasdㅋㅋㅋㅋ캬캬캬ㅎㅎ$%#ㅎㅎ'))
-print(re.search('[^ㄱ-ㅎ가-힣]+','ㅋㅋㅋasdㅋㅋㅋㅋ캬캬캬ㅎㅎ$%#ㅎㅎ'))
-print(re.findall('[^ㄱ-ㅎ가-힣]+','ㅋㅋㅋasdㅋㅋㅋㅋ캬캬캬ㅎㅎ$%#ㅎㅎ'))
-print(re.findall('[ㄱ-ㅎ가-힣]+','ㅋㅋㅋasdㅋㅋㅋㅋ캬캬캬ㅎㅎ$%#ㅎㅎ'))
-
-
-news="""
-(서울=연합뉴스) 신선미 기자 = 국내 신종 코로나바이러스 감염증(코로나19) '3차 대유행'이 완만한 감소세로 접어든 가운데 이번 주 신규 확진자 발생 추이가 주목된다.
-
-신규 확진자 감소세 지속이냐 재확산이냐의 흐름을 가늠해 볼 수 있기 때문이다.
-
-지난달 말까지만 해도 연일 1천명 안팎으로 발생하던 신규 확진자는 새해 들어 600명대로 줄었다가 11일 400명대 중반까지 더 떨어진 뒤 12일에는 500명대로 소폭 증가한 상태다.
-
-큰 틀의 통계만 보면 확실한 감소 내지 안정국면으로 접어드는 것 아니냐는 관측이 나온다.
-
-하지만 신규 확진자가 400명∼500명대까지 낮아진 데는 주말과 휴일 검사건수 감소 영향도 있어 아직 상황을 낙관하기에는 이르다는 게 감염병 전문가들의 공통된 의견이다.
-
-방역당국 역시 긴장의 끈을 풀기에는 위험 요인이 너무 많다며 국민 개개인의 지속적인 방역 협조를 당부하고 있다.
-"""
-
-pat=re.compile("[ㄱ-ㅎ가-힣]+")
-res=pat.findall(news)
-print(res)
-pat=re.compile("[^ㄱ-ㅎ가-힣]+")
-res=pat.findall(news)
-print(res)
-
-pat=re.compile("[ㄱ-ㅎ가-힣]*[0-9]+")
-res=pat.findall(news)
-print(res)
-
-pat=re.compile("[0-9]+[ㄱ-ㅎ가-힣]+")
-res=pat.findall(news)
-print(res)
-
-pat=re.compile("[0-9]+[명|천]+")
-res=pat.findall(news)
-print(res)
-
-print(re.match("[^A-Z]+",'Hello'))
-print(re.match("[^A-Z]+",'heLlo'))
-print(re.match("[0-9]+",'heLlo119'))
-print(re.search("[0-9]+$",'heLlo119'))
-print(re.search("[0-9]+$",'heLlo119o'))
-
-print(re.search('[*]',"3*5"))
-print(re.search('\*',"3*5"))
-print(re.search('[*]+',"3**5"))
-print(re.search('[*]*',"3**5")) # 왼쪽부터 찾는거라 0개 반복이 매치되어 버림
-print(re.search('\*+',"3**5"))
-
-print(re.search("\$\([a-z]+\)","$(document)"))
-print(re.search("[$()a-z]+","$(document)"))
-
-# data.go.kr 공공데이터 포털
-
-# 그룹핑 ()
-s='abcabcabc ok'
-print(re.search("abc",s))
-print(re.search("(abc)*",s))
-print(re.search("(abc)*",s))
-print(re.search("\w+\s+\d+[-]\d+[-]\d+","kim 010-1234-1234"))
-print(re.search("\w+","kim 010-1234-1234"))
-
-print(re.search("(\w+)\s+\d+[-]\d+[-]\d+","kim 010-1234-1234"))
-res=re.search("(\w+)\s+(\d+)[-]\d+[-]\d+","kim 010-1234-1234") # 이름에 그룹 지정
-print(res)
-print(res.group(0)) #전체
-print(res.group(1)) #첫번째 소괄호 :이름
-print(res.group(2)) #두번째 소괄호 :지역번호
-
-# 그룹에 이름 부여가능
-res=re.search("(?P<name>\w+)\s+(?P<number>\d+[-]\d+[-]\d+)","kim 010-1234-1234")
-# 작성형식: (?P<그룹명>)
-print(res.group("name")) #첫번째 소괄호 :이름
-print(res.group("number")) #두번째 소괄호 :이름
-print(re.findall("hello|hi","hello how are you bye hi hi"))
-
-
-# res=re.search("\w+\s+\d+[-]\d+[-]\d+","kim 010-1234-1234")
-# print(type(res.group()))
-# print(res.group())
-# print(res.group().split()[0])
+# # 정석 과정
+# pat=re.compile("[a-z]+")  #정의한 패턴을 pat에 저장
+# print(pat.match("python"))#패턴객체(pat)가 가지고 있는 match함수를 이용하여 주어진
+#                           # 문자열이 패턴에 매치되는지 확인
+#
+# print(re.match("[a-z]+","7python"))
+# print(re.search("[a-z]+","7python"))
+# print(re.search("[a-z]+","7python8java9cpp"))
+# print(re.search("[a-z]+","7python8java9cpp"))
+# print(re.findall("[a-z]+","7python8java9cpp"))
+#
+# pat=re.compile("[a-z]+")
+# res=pat.findall("7python8java9cpp")
+# print(res)
+# pat=re.compile("[0-9]+")
+# res=pat.findall("7python8java9cpp")
+# print(res)
+#
+# res=re.finditer("[a-z]+","7python8java9cpp") # 반복 가능한 객체로 리턴
+# for i in res:
+#     print(i)
+#     print(i.start())
+#     print(i.end())
+#     print(i.span())
+#     print(i.group())
+#
+# # .: 점(.) 메타문자는 모든 문자 1개와 매치(예외: "\n")
+# print(re.match("a.b","a0b"))
+# print(re.match("a.b","a\nb"))
+# print(re.match("a.b","a\nb",re.DOTALL))
+#
+# pat=re.compile("a.b",re.DOTALL)
+# print(pat.match("a\nb"))
+#
+# # 대소문자 무시
+# pat=re.compile("[a-z]+",re.I) #ignorecase
+# print(pat.match("PYTHON"))
+#
+#
+# # \문자 \ 그 자체로 매치하기
+# print(re.search("\section",'jwejjroijisdfie dfi er \section sdfki'))
+# # \s가 \section이 아닌 메타문자로 해석됨
+# print(re.search("\section",'jwejjroijisdfie dfi er ection sdfki'))
+# print(re.search("\\\section",'jwejjroijisdfie dfi er \section sdfki'))
+# print(re.search(r"\\section",'jwejjroijisdfie dfi er \section sdfki'))
+# # r"\\section => \section
+#
+# print(re.match("ab[0-9]?","abc"))
+# print(re.match("ab[0-9]?c","ab9c"))
+# print(re.match("ab.c","ab9c"))
+# print(re.match("h{3}","hhhiii"))
+# print(re.match("h{3}","hihihihelloworld"))
+#
+# # () :grouping
+# print(re.match("hi{3}","hihihihelloworld"))
+# print(re.match("(hi){3}","hihihihelloworld"))
+# print(re.match("(hi){3,5}","hihihihelloworld"))
+# print(re.match("[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}","042-1234-5678"))
+#
+# print(re.match('[ㄱ-ㅎ]+','ㅋㅋㅋㅋㅋㅋㅋ캬캬캬ㅎㅎㅎㅎ'))
+# print(re.match('[ㄱ-ㅎ가-힣]+','ㅋㅋㅋㅋㅋㅋㅋ캬캬캬ㅎㅎㅎㅎ'))
+# print(re.match('[ㄱ-ㅎ가-힣]+','ㅋㅋㅋasdㅋㅋㅋㅋ캬캬캬ㅎㅎ$%#ㅎㅎ'))
+# print(re.search('[^ㄱ-ㅎ가-힣]+','ㅋㅋㅋasdㅋㅋㅋㅋ캬캬캬ㅎㅎ$%#ㅎㅎ'))
+# print(re.findall('[^ㄱ-ㅎ가-힣]+','ㅋㅋㅋasdㅋㅋㅋㅋ캬캬캬ㅎㅎ$%#ㅎㅎ'))
+# print(re.findall('[ㄱ-ㅎ가-힣]+','ㅋㅋㅋasdㅋㅋㅋㅋ캬캬캬ㅎㅎ$%#ㅎㅎ'))
+#
+#
+# news="""
+# (서울=연합뉴스) 신선미 기자 = 국내 신종 코로나바이러스 감염증(코로나19) '3차 대유행'이 완만한 감소세로 접어든 가운데 이번 주 신규 확진자 발생 추이가 주목된다.
+#
+# 신규 확진자 감소세 지속이냐 재확산이냐의 흐름을 가늠해 볼 수 있기 때문이다.
+#
+# 지난달 말까지만 해도 연일 1천명 안팎으로 발생하던 신규 확진자는 새해 들어 600명대로 줄었다가 11일 400명대 중반까지 더 떨어진 뒤 12일에는 500명대로 소폭 증가한 상태다.
+#
+# 큰 틀의 통계만 보면 확실한 감소 내지 안정국면으로 접어드는 것 아니냐는 관측이 나온다.
+#
+# 하지만 신규 확진자가 400명∼500명대까지 낮아진 데는 주말과 휴일 검사건수 감소 영향도 있어 아직 상황을 낙관하기에는 이르다는 게 감염병 전문가들의 공통된 의견이다.
+#
+# 방역당국 역시 긴장의 끈을 풀기에는 위험 요인이 너무 많다며 국민 개개인의 지속적인 방역 협조를 당부하고 있다.
+# """
+#
+# pat=re.compile("[ㄱ-ㅎ가-힣]+")
+# res=pat.findall(news)
+# print(res)
+# pat=re.compile("[^ㄱ-ㅎ가-힣]+")
+# res=pat.findall(news)
+# print(res)
+#
+# pat=re.compile("[ㄱ-ㅎ가-힣]*[0-9]+")
+# res=pat.findall(news)
+# print(res)
+#
+# pat=re.compile("[0-9]+[ㄱ-ㅎ가-힣]+")
+# res=pat.findall(news)
+# print(res)
+#
+# pat=re.compile("[0-9]+[명|천]+")
+# res=pat.findall(news)
+# print(res)
+#
+# print(re.match("[^A-Z]+",'Hello'))
+# print(re.match("[^A-Z]+",'heLlo'))
+# print(re.match("[0-9]+",'heLlo119'))
+# print(re.search("[0-9]+$",'heLlo119'))
+# print(re.search("[0-9]+$",'heLlo119o'))
+#
+# print(re.search('[*]',"3*5"))
+# print(re.search('\*',"3*5"))
+# print(re.search('[*]+',"3**5"))
+# print(re.search('[*]*',"3**5")) # 왼쪽부터 찾는거라 0개 반복이 매치되어 버림
+# print(re.search('\*+',"3**5"))
+#
+# print(re.search("\$\([a-z]+\)","$(document)"))
+# print(re.search("[$()a-z]+","$(document)"))
+#
+# # data.go.kr 공공데이터 포털
+#
+# # 그룹핑 ()
+# s='abcabcabc ok'
+# print(re.search("abc",s))
+# print(re.search("(abc)*",s))
+# print(re.search("(abc)*",s))
+# print(re.search("\w+\s+\d+[-]\d+[-]\d+","kim 010-1234-1234"))
+# print(re.search("\w+","kim 010-1234-1234"))
+#
+# print(re.search("(\w+)\s+\d+[-]\d+[-]\d+","kim 010-1234-1234"))
+# res=re.search("(\w+)\s+(\d+)[-]\d+[-]\d+","kim 010-1234-1234") # 이름에 그룹 지정
+# print(res)
+# print(res.group(0)) #전체
+# print(res.group(1)) #첫번째 소괄호 :이름
+# print(res.group(2)) #두번째 소괄호 :지역번호
+#
+# # 그룹에 이름 부여가능
+# res=re.search("(?P<name>\w+)\s+(?P<number>\d+[-]\d+[-]\d+)","kim 010-1234-1234")
+# # 작성형식: (?P<그룹명>)
+# print(res.group("name")) #첫번째 소괄호 :이름
+# print(res.group("number")) #두번째 소괄호 :이름
+# print(re.findall("hello|hi","hello how are you bye hi hi"))
+#
+#
+# # res=re.search("\w+\s+\d+[-]\d+[-]\d+","kim 010-1234-1234")
+# # print(type(res.group()))
+# # print(res.group())
+# # print(res.group().split()[0])

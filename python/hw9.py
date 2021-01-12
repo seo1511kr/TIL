@@ -2,37 +2,45 @@
 #
 # 입력 예시: 0123456789 01234 01234567890 6789012345 012322456789
 # 출력 예시: True False False True False
+stnum=list(range(10))
 
-# stnum=list(range(10))
-# def oncenum(num):
-#     num=str(num)
-#     for i in num:
-#         if int(i) in stnum:
-#             stnum.remove(int(i))
-#         else: break
-#     if len(stnum) == 0:
-#         return True
-#     else:return False
-# print(oncenum("0123456789"))
+def checkTFnumber():
+    stnum = list(range(10))
+    import re
+    s=input("please input number:")
+    pat=re.compile("\d+")
+    s=pat.findall(s)
+    def oncenum(num):
+        num=str(num)
+        if len(num)==len(range(10)):
+            for i in num:
+                if int(i) in stnum:
+                    stnum.remove(int(i))
+                else: break
+            if len(stnum) == 0:
+                return True
+            else:return False
+        else:return False
+    return list(zip(map(oncenum, s),s))
+
+print(checkTFnumber())
 
 
-# #
-# # 2.
-# emails = ['python@mail.example.com', 'python+kr@example.com',              # 올바른 형식
-#           'python-dojang@example.co.kr', 'python_10@example.info',         # 올바른 형식
-#           'python.dojang@e-xample.com',                                    # 올바른 형식
-#           '@example.com', 'python@example', 'python@example-com']          # 잘못된 형식
-#
-# import re
-#
-# print(emails)
-# p=re.compile('(.+)[@]([a-z\\-]+[.][a-z]+)')
-# print(p.match("python@example-com"))
-# for i in emails:
-#     if p.match(i):
-#         print("올바른 형식",p.findall(i))
-#     else:
-#         print("잘못된 형식")
+# 2.
+emails = ['python@mail.example.com', 'python+kr@example.com',              # 올바른 형식
+          'python-dojang@example.co.kr', 'python_10@example.info',         # 올바른 형식
+          'python.dojang@e-xample.com',                                    # 올바른 형식
+          '@example.com', 'python@example', 'python@example-com']          # 잘못된 형식
+
+import re
+
+p=re.compile('.+[@][a-z\\-]+[.][a-z]+')
+print(p.match("python@example-com"))
+for i in emails:
+    if p.match(i):
+        print("올바른 형식",p.findall(i))
+    else:
+        print("잘못된 형식")
 #
 #
 # # 3.
@@ -96,7 +104,7 @@ new="""
 날씨 전해 드렸습니다.
 """
 # #
-# # 1)[캐스터]가 캐스팅한 내용만 추출하시오
+# 1)[캐스터]가 캐스팅한 내용만 추출하시오
 p=re.compile('\\[캐스터.+',re.DOTALL)
 print(p.findall(new))  #p.findall()은 list로 출력됨
 print(p.findall(new)[0].replace("\n"," ")) #replace는 string에서 사용가능
@@ -110,43 +118,34 @@ print(re.findall("대전.{,10}",new,re.DOTALL))
 print("대전의 온도:",re.findall("대전.{,10}",new,re.DOTALL)[0][3])
 
 # # 4)가장 많이 등장한 단어가 무엇인가요?
-# p=re.compile('\w+')
-# res=p.findall(new)
-# print(p.findall(new))
-# print(type(res))
-# print(res[0])
-#
-#
-#
-# l = []
-# excount = 0
-# for i in res:
-#     newcount = 0
-#     for j in res:
-#         if i==j:
-#             newcount+=1
-#     l.append((newcount,i))
-#     max1=max(l)[0]
-# print(l)
-# print(set([l[i][1] for i in range(len(l)) if l[i][0] >= max1]),":",max1)
-#
-
-
+p=re.compile('[가-힣]+')
+res=p.findall(new)
+print(p.findall(new))
+print(res.count("눈이"))
+print(type(res))
+l = dict.fromkeys(res,0)
+for i in res:
+    for j in res:
+        if i==j:
+            l[i]=l[i]+1
+print(i for i in list(l.keys()))
+print(l)
+print(max(l.values()))
+maxnum=max(l.values())
+print({i:j for i,j in l.items() if j >= maxnum})
 
 # # 5)가장 많이 등장한 글자는 무엇이며, 총 몇 번 등장했나요?
-# import re
-# p=re.compile("[가-힣]+")
-# print(p.findall(new))
-# l=p.findall(new)
-# word=dict()
-# for j in l:
-#     for i in j:
-#         if i in word.keys():
-#             word[i]+=1
-#         else:word[i]=0
-# print(word)
-# maxnum=max(word.values())
+import re
+p=re.compile("\w+")
+print(p.findall(new))
+l=p.findall(new)
+char=dict()
+for j in l:
+    for i in j:
+        if i in char.keys():
+            char[i]+=1
+        else:char[i]=1
+print(char)
+maxnum=max(char.values())
+print({i:j for i,j in char.items() if j >= maxnum})
 
-# for i in range(len(word.keys())):
-#     if list(word.values())[i]==maxnum:
-#         print(list(word.keys())[i],":",maxnum)
