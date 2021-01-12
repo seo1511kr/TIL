@@ -35,7 +35,7 @@
 # # (): 그룹을 나타냄: 소괄호 2개 ((g1)g2)
 # # [기호], {문자개수}
 # print(p.sub('\g<1>-*******',jumin))
-# # re.complie("문자열 구조")로 문자열을 object화 시킨 후
+# # p= re.complie("문자열 구조")로 문자열을 object화 시킨 후
 # # p.sub(대체할 패턴,대체 대상 문자열)
 # # 정상적인 주민번호에 대한 일반적인 규칙을 정의 숫자6자리-숫자7
 #
@@ -80,7 +80,7 @@
 # ex) [abcdef] 의미? a,b,...,f중에서 어떤 한개!!!의 문자와 매치
 # 'a' 문자는 정규표현식에 매치됨
 # '''
-# import re
+import re
 # print(re.match("[abcdef]","a")) #매치 o
 # print(re.match("[abcdef]","c")) #매치 o
 # print(re.match("[abcdef]","g")) #매치 x
@@ -148,28 +148,28 @@
 # print(re.match("a*b","aaaab"))
 
 
-# a가 1개 이상 그 뒤 b
-import re
-print(re.match("a+b","b"))
-print(re.match("a+b","bb"))
-print(re.match("a+b","ab"))
-print(re.match("a+b","aaaab"))
-
-print(re.match("a+b+","aaaabbbb"))
-print(re.match("a+b+c","aaaacccc"))
-print(re.match("a+b*c","aaaacccc"))
-print(re.match("a+b*c*","aaaacccc"))
-print(re.match("a+cb*","aaaacbbbbbbb"))
-
-print(re.match("a+b*","aaaaabbbbbbbbc"))
-print(re.match("a+b*k","aaaaabbbbbbbbc")) #b뒤에 반드시 k가 나와야함
-print(re.match("a+b*k*","aaaaabbbbbbbbc"))
-print(re.match("[abc]*","bcaada"))
-
-
-print(re.match("대한+민국","우리 나라는 대한한한한한한민국"))
-print(re.search("대한+민국","우리 나라는 대한한한한한한민국"))
-
+# # a가 1개 이상 그 뒤 b
+# import re
+# print(re.match("a+b","b"))
+# print(re.match("a+b","bb"))
+# print(re.match("a+b","ab"))
+# print(re.match("a+b","aaaab"))
+#
+# print(re.match("a+b+","aaaabbbb"))
+# print(re.match("a+b+c","aaaacccc"))
+# print(re.match("a+b*c","aaaacccc"))
+# print(re.match("a+b*c*","aaaacccc"))
+# print(re.match("a+cb*","aaaacbbbbbbb"))
+#
+# print(re.match("a+b*","aaaaabbbbbbbbc"))
+# print(re.match("a+b*k","aaaaabbbbbbbbc")) #b뒤에 반드시 k가 나와야함
+# print(re.match("a+b*k*","aaaaabbbbbbbbc"))
+# print(re.match("[abc]*","bcaada"))
+#
+#
+# print(re.match("대한+민국","우리 나라는 대한한한한한한민국"))
+# print(re.search("대한+민국","우리 나라는 대한한한한한한민국"))
+#
 
 #
 # print(re.match("a*","aaaabaaa"))
