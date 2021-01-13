@@ -34,7 +34,7 @@ emails = ['python@mail.example.com', 'python+kr@example.com',              # 올
 
 import re
 
-p=re.compile('.+[@][a-z\\-]+[.][a-z]+')
+p=re.compile('[\w\\-+_.]+[@][a-z\\-]+[.][a-z]+')
 print(p.match("python@example-com"))
 for i in emails:
     if p.match(i):

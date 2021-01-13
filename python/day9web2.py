@@ -70,9 +70,9 @@ print(re.match("[a-zA-z0-9]+[.]+[a-zA-z]{3}","dofieoi.wepod"))
 print(re.match("[a-zA-z]{3}","dofieoi.wepod"))
 print(re.match("[a-zA-z]{3}","do"))
 
-flist=["abc.txt","abc.exe","abc.cfg","asdwokro","dofieoi.wepod"]
+flist=["abc.txt","abc.exe","abc.cfg","asdwokro","dofieoi.wep$od"]
 for i in flist:
-    res=re.match("[a-zA-z0-9]+[.][a-zA-z]",i)
+    res=re.match("[a-zA-z0-9]+[.][a-zA-z]+$",i)
     if res:
         print("정상적인 파일명",i)
     else:
@@ -95,15 +95,15 @@ for i in flist:
 # print(re.match("d[a-z]{2,5}g","doooooooooooooooog")) # None, o가 2번이상 5번이하 반복
 #
 
-# Q 마지막 문자열 처리 어떻게 하나..
-phone_list=["010-1234-5678","abc-1234-5678","01c-1234-5678",'010-12345-5678','012345678','01012345678','010-2323-30301']
-for i in range(len(phone_list)):
-    if re.match("\d{3}[-]\d{4}[-]\d{4}",phone_list[i]):
-        print("올바른 전화번호",phone_list[i])
-    else:
-        print("잘못된 전화번호")
-
-print(re.match("(^01)\d{3}[-]\d{4}[-]\d{4}","010-1212-3434"))
+# # Q 마지막 문자열 처리 어떻게 하나..
+# phone_list=["010-1234-5678","abc-1234-5678","01c-1234-5678",'010-12345-5678','012345678','01012345678','010-2323-30301']
+# for i in range(len(phone_list)):
+#     if re.match("\d{3}[-]\d{4}[-]\d{4}",phone_list[i]):
+#         print("올바른 전화번호",phone_list[i])
+#     else:
+#         print("잘못된 전화번호")
+#
+# print(re.match("(^01)\d{3}[-]\d{4}[-]\d{4}","010-1212-3434"))
 
 
 # match, search
@@ -255,3 +255,22 @@ print(re.match("(^01)\d{3}[-]\d{4}[-]\d{4}","010-1212-3434"))
 # # print(type(res.group()))
 # # print(res.group())
 # # print(res.group().split()[0])
+
+
+# # 질문내용 정규표현식
+# # 전화번호 010-3848-29293 처럼 이미 매치가 완료된 이후 뒤에 불필요한 것이 더 있어서
+# # 오류로 잡아내고 싶은 경우
+# import re
+# print(re.match("\d{4}","123"))
+# print(re.match("\d{4}","1234"))
+# print(re.match("\d{4}","12345"))
+#
+# if re.match("\d{4}$","12345"):
+#     print("정상 전화번호")
+# else:
+#     print("비정상 전화번호")
+#
+# if re.match("\d{4}","12345"):
+#     print("정상 전화번호")
+# else:
+#     print("비정상 전화번호")
