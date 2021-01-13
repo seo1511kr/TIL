@@ -210,11 +210,16 @@
 # print(d2)
 #
 # # # 없는 키 값에 디폴트값을 설정하여 출력하기==================================================
-# from collections import defaultdict #collections 모듈에서 defaultdict함수를 가져옴
-# # print(d2['z']) 키가 없으므로 에러
-# d2=defaultdict(int)
-# print(d2['z'])
-# print(d2)
+from collections import defaultdict #collections 모듈에서 defaultdict함수를 가져옴
+# print(d2['z']) 키가 없으므로 에러
+d2=defaultdict(int)
+print(d2['z'])
+print(d2)
+d2["sd"]=3
+print(d2)
+d3={}
+d3["a"]=1
+print(d3)
 # # ========================================================================================
 #
 # d3={'a':10,'b':20}
