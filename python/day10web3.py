@@ -243,23 +243,30 @@ html4 = """
 </body></html>
 """
 soup=BeautifulSoup(html4,"html.parser")
-soup.select("div")
-print(soup.select("div"))
-print(soup.select("div#lang")) # lang이라는 id를 갖은 div 태그만 추출
-print(soup.select("div#lang > h1"))
-# .select(): 리스트 자료구조, 여러개 모두 추출할 때
-# print(soup.select("div#lang > h1")[0].string)
+# print(type(soup.select("div")))
+# print(soup)
+# print(type(soup))
+# print(soup.select("div"))
+# print(soup.select("div")[0])
+# print(soup[0])
 
-print(soup.select_one("div#lang > h1")) #문자열 자료구조
-# .select_one(): 한 개를 추출
 
-print(soup.select("div#lang > ul"))
-print(soup.select_one("div#lang > ul"))
-
-#<ul class="items"> 클래스명 설정 ul.items
-print(soup.select("div#lang > ul.items > li"))
-print(soup.select_one("div#lang > ul.items > li"))
-
+# print(soup.select("div"))
+# print(soup.select("div#lang")) # lang이라는 id를 갖은 div 태그만 추출
+# print(soup.select("div#lang > h1"))
+# # .select(): 리스트 자료구조, 여러개 모두 추출할 때
+print(soup.select("div#lang > h1")[0].string)
+#
+# print(soup.select_one("div#lang > h1")) #문자열 자료구조
+# # .select_one(): 한 개를 추출
+#
+# print(soup.select("div#lang > ul"))
+# print(soup.select_one("div#lang > ul"))
+#
+# #<ul class="items"> 클래스명 설정 ul.items
+# print(soup.select("div#lang > ul.items > li"))
+# print(soup.select_one("div#lang > ul.items > li"))
+#
 mylist=soup.select("div#lang > ul.items > li")
 for i in mylist:
     print(i.string)
