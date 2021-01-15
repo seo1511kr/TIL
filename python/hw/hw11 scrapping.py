@@ -1,4 +1,9 @@
 # # 1. 다나와 무선청소기(페이지가 계속 변동해서 오류)
+# ==> 로딩이 되기전에 긁어와서 오류가 생기는것
+# 강제로 시간을 지연시키는 코드를 추가해줘야함
+
+
+
 # # url = "http://search.danawa.com/dsearch.php?query=무선청소기&tab=main"
 # from bs4 import BeautifulSoup
 # from selenium import webdriver
