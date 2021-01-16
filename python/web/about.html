@@ -7,14 +7,34 @@
     a{color:black;
     text-decoration:none;}
     .menucontainer{display: grid;;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-areas:
+    ". . about work contact shop . .";
     margin: 100px;
-    margin-left: 350px;
-    margin-right: 350px;
+    margin-left: 450px;
+    margin-right: 450px;
     grid-gap: 0px;
-	gap: 0px
+	gap: 0px;
     }
-    .item{font-weight: 700;
+    .about{
+    grid-area: about;
+    font-weight: 700;
+    paddig-left: 0px;
+    padding-right: 0px;
+    }
+    .work{
+    grid-area: work;
+    font-weight: 700;
+    paddig-left: 0px;
+    padding-right: 0px;
+    }
+    .contact{font-weight: 700;
+    grid-area: contact;
+    paddig-left: 0px;
+    padding-right: 0px;
+    }
+    .shop{font-weight: 700;
+    grid-area: shop;
     paddig-left: 0px;
     padding-right: 0px;
     }
@@ -34,17 +54,19 @@
 
 
 <div class="menucontainer">
-	<div class="item"><a href="about.html">about</a></div>
-	<div class="item"><a href="work.html">work</a></div>
-	<div class="item"><a href="contact.html">contact</a></div>
-	<div class="item"><a href="shop.html">shop</a></div>
+	<div class="about"><a href="about.html">about</a></div>
+	<div class="work"><a href="work.html">work</a></div>
+	<div class="contact"><a href="contact.html">contact</a></div>
+	<div class="shop"><a href="shop.html">shop</a></div>
 </div>
 <!--여기서부터 contents-->
 <div class="mainart">
     <p style="font-size:30px;">about</p>
     <p>일러스트레이터 히쩌미입니다.<br> 일러스트를 기반으로 작품활동 및 전시<br>브랜드들과 협업을 진행하고 있습니다.</p>
 </div>
-
+<div class="bottom">
+    <div class="logo"><h2><a href="index.html">Hizzeomi & Mandooboo</a></h2></div>
+</div>
 
 <!--</div>-->
 <!--<div class="contentscontainer" style="margin-right: 200px;">-->
