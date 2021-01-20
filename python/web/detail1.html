@@ -40,15 +40,26 @@
     }
     .main{display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     grid-template-areas:
     ". detail1 ."
-    ". detail2 ."
-    ". detail3 .";
+    ". detail2 .";
     font-family: sans-serif, "돋움", dotum, "굴림", gulim, arial, helvetica;
     font-style: italic;
     font-weight: bold;
     font-size : 12px;
+    }
+    .art{display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, minmax(20px,auto));
+    grid-gap: 90px;
+	gap: 90px;
+	margin-bottom: 0px;
+    font-family: sans-serif, "돋움", dotum, "굴림", gulim, arial, helvetica;
+    font-style: italic;
+    font-weight: bold;
+    font-size : 12px;
+    align-items: end;
     }
     .detail1{
     grid-area: detail1;
@@ -93,6 +104,21 @@
     <div class="detail1"><p>2020/01/02<br>설명설명열매</p><a href="detail1.html"><img src="art1.jpg" width="100%"/></a></div>
     <div class="detail2" style="margin-top: 50px;"><a href="detail1.html"><img src="art1.jpg" width="100%"/></a><p>2020/01/02<br>설명설명열매</p></div>
 </div>
+
+<div class="art" style="margin: 200px;">
+    <div class="art1"><a href="detail1.html"><img src="art1.jpg" width="100%"/></a><p>제목:방구뿡뿡<br>날짜:2020.0102</p></div>
+    <div class="art2"><a href="detail4.html"><img src="art4.jpg" width="100%"/></a><p>제목:방구뿡뿡<br>날짜:2020.0102</p></div>
+    <div class="art3"><a href="detail3.html"><img src="art3.jpg" width="100%"/></a><p>제목:방구뿡뿡<br>날짜:2020.0102</p></div>
+    <div class="art4"><a href="detail2.html"><img src="art2.jpg" width="100%"/></a><p>제목:방구뿡뿡<br>날짜:2020.0102</p></div>
+</div>
+<div class="art" style="margin:200px;">
+    <div class="art5"><a href="detail5.html"><img src="art5.jpg" width="100%"/></a><p>제목:방구뿡뿡<br>날짜:2020.0102</p></div>
+    <div class="art6"><a href="detail6.html"><img src="art6.jpg" width="100%"/></a><p>제목:방구뿡뿡<br>날짜:2020.0102</p></div>
+    <div class="art7"><a href="detail7.html"><img src="art7.jpg" width="100%"/></a><p>제목:방구뿡뿡<br>날짜:2020.0102</p></div>
+    <div class="art8"><a href="detail8.html"><img src="art8.jpg" width="100%"/></a><p>제목:방구뿡뿡<br>날짜:2020.0102</p></div>
+</div>
+
+
 <div class="bottom">
     <div class="logo"><h2><a href="index.html">Hizzeomi & Mandooboo</a></h2></div>
 </div>

@@ -1,114 +1,82 @@
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta charset="utf-8">
-    <title>Title</title>
-    <style>div{text-align:center;}
-    a{color:black;
-    text-decoration:none;}
-    .menucontainer{display: grid;;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-areas:
-    ". . about work contact shop . .";
-    margin: 100px;
-    margin-left: 450px;
-    margin-right: 450px;
-    grid-gap: 0px;
-	gap: 0px;
-    }
-    .about{
-    grid-area: about;
-    font-weight: 700;
-    paddig-left: 0px;
-    padding-right: 0px;
-    }
-    .work{
-    grid-area: work;
-    font-weight: 700;
-    paddig-left: 0px;
-    padding-right: 0px;
-    }
-    .contact{font-weight: 700;
-    grid-area: contact;
-    paddig-left: 0px;
-    padding-right: 0px;
-    }
-    .shop{font-weight: 700;
-    grid-area: shop;
-    paddig-left: 0px;
-    padding-right: 0px;
-    }
-    .mainart{display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    grid-template-areas:
-    }
-    .bottom{display: grid;;
-    grid-template-columns: repeat(8, 1fr);
-    margin: 100px;
-    margin-left: 350px;
-    margin-right: 350px;
-    grid-gap: 0px;
-	gap: 0px
-    grid-template-areas:
-    ".......logo";
-    }
-    .logo{
-    grid-area: logo;
-    }
+    <meta charset="UTF-8">
+    <title>일러스트레이터 Hizzeomi</title>
+    <style>
+        .container{
+        display:grid;
+        grid-template-rows: repeat(3,minmax(150px,auto));
+        }
+        .contents{
+        display:grid;
+        align-items: end;
+        grid-gap: 60px;
+        grid-template-columns: 1fr 1fr 1fr;
+        }
+        a{
+        text-decoration:none;
+        color:black;
+        }
+        .header{
+        display:grid;
+        grid-template-columns: 20% 60% 20%;
+        }
+        img{
+        margin-bottom:20px;
+
+        width:100%;
+
+        }
+
+        .bottom{
+        }
+        .item{
+        font-size: 12px;
+
+        text-align: center;
+        }
+        td{
+        font-s
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 12px;
+        font-weight: 600;
+        }
+
     </style>
 </head>
-<body style="margin: 200px;">
-<div>
-    <h1><a href="index.html">Hizzeomi & Mandooboo</a></h1>
-    <h2>a day in cozy life</h2>
-</div>
+<body>
+    <div class="container">
+        <div class="header" style="margin-top:35px;">
+            <div class="item"></div>
+            <div class="item" align="center">
+                <a href="index.html"align="center" style="margin-top:0px;"> <img src="art/logo.png" style="width: 300px;"></a>
+                <h3 align="center" style="margin-bottom: 37px"></h3>
+                <table align="center">
+                    <tr>
+                        <td><a href="about.html">about</a></td>
+                        <td><a href="work.html">work</a></td>
+                        <td><a href="https://linktr.ee/hizzeomi">shop</a></td>
+                        <td><a href="contact.html">contact</a></td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="item"></div>
+        </div>
+
+        <div class="contents" style="margin: 80px 80px 80px">
+            <div></div>
+            <div align="right" style="margin-bottom: 0px;"><audio src="music/emotions.mp3" autoplay="1" controls loop="1" style="width:110px;height:30px;"></div>
+            <div></div>
+            <div></div>
+            <div><iframe width="560" height="315" src="https://www.youtube.com/embed/s-nPv5iyt1U?start=194&mute=1&autoplay=1&loop=1&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+            <div></div>
+
+        </div>
+        <div class="bottom"></div>
+    </div>
 
 
-<div class="menucontainer">
-	<div class="about"><a href="about.html">about</a></div>
-	<div class="work"><a href="work.html">work</a></div>
-	<div class="contact"><a href="contact.html">contact</a></div>
-	<div class="shop"><a href="shop.jpg">shop</a></div>
-</div>
-
-
-<div class="mainart">
-    <div class="fst2"><a href="detail4.html"><img style="margin: 100px;width: 700px;" src="art4.jpg" width="100%"/></a></div>
-</div>
-<div class="bottom">
-    <div class="logo"><h2><a href="index.html">Hizzeomi & Mandooboo</a></h2></div>
-</div>
-
-<!--</div>-->
-<!--<div class="contentscontainer" style="margin-right: 200px;">-->
-<!--    <p></p>-->
-<!--<img src="main.jpg" width="100%" style="padding-left: 120px;"/>-->
-<!--<img src="main.jpg" width="100%" style="padding-left: 120px;"/>-->
-<!--<img src="main.jpg" width="100%" style="padding-left: 120px;"/>-->
-<!--<img src="main.jpg" width="100%" style="padding-left: 120px;"/>-->
-
-<!--    <p></p>-->
-<!--    <p></p>-->
-<!--<img src="main.jpg" width="100%" style="padding-left: 120px;"/>-->
-<!--<img src="main.jpg" width="100%" style="padding-left: 120px;"/>-->
-<!--<img src="main.jpg" width="100%" style="padding-left: 120px;"/>-->
-<!--<img src="main.jpg" width="100%" style="padding-left: 120px;"/>-->
-
-<!--    <p></p>-->
-<!--    <p></p>-->
-
-<!--<img src="main.jpg" width="100%" style="padding-left: 120px;"/>-->
-<!--<img src="main.jpg" width="100%" style="padding-left: 120px;"/>-->
-<!--<img src="main.jpg" width="100%" style="padding-left: 120px;"/>-->
-<!--<img src="main.jpg" width="100%" style="padding-left: 120px;"/>-->
-
-<!--    <p></p>-->
-<!--    <p></p>-->
-<!--<img src="main.jpg" width="100%" style="padding-left: 120px;"/>-->
-<!--<img src="main.jpg" width="100%" style="padding-left: 120px;"/>-->
-<!--<img src="main.jpg" width="100%" style="padding-left: 120px;"/>-->
-<!--</div>-->
-</div>
 </body>
 </html>
