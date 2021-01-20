@@ -381,3 +381,120 @@
 # print(dic)
 # print(len(dic))
 
+# # sort()/sorted()
+# num=[1,2,3,9,2,2,4,7]
+# print(sorted(num)) # sorted() 는 바로 출력이 됨
+# print(num)         # 원래 데이터는 변동 x
+# num.sort()
+# print(num.sort())  # data.sort() 를 print할 경우에는 None이 나옴
+# print(num)         # 원래 데이터 자체가 정렬됨
+#
+# # 딕셔너리에서 .pop()
+# a = {'A':90, 'B':80, 'C':70}
+# print(a.pop("B"))
+#
+# # 딕셔너리에서 변수 추가
+# a={}
+# print(a)
+# a["a"]='python'
+# print(a)
+# a[250]='python'
+# print(a)
+# a[("c",)]='python'
+# print(a)
+# # 딕셔너리 키 값에는 변하지 않는 상수만 가능
+# # a[[1]]='python' 에서 [1]은 리스트라 키 값이 될 수 있음
+#
+# # .append(""), .extend(("","","")))
+# movie_rank=["닥터 스트레인지","스플릿","럭키"]
+# movie_rank.append(("어벤져스","엔드게임"))     # 튜플로 추가됨
+# print(movie_rank)
+# movie_rank.extend(("터미네이터","반지의 제왕")) # 각각 요소로 추가됨
+# print(movie_rank)
+#
+# # .insert(위치,"")
+# movie_rank.insert(3,"광해")
+# print(movie_rank)
+#
+# #========================================================================
+#
+# # day3 리뷰
+#
+# # dic.함수========================================================================
+# # "키" in dic
+# dic= {"아이디": '홍길동', "레벨": 10, "체력": 100, "마나": 20, "공격력": 200, "방어력": 50}
+# print(dic)
+# print("방어력" in dic)
+#
+# # dic.keys(), dic.values(), dic.items(), dic.clear()
+# print(list(dic.keys()))
+# print(list(dic.values()))
+# print(list(dic.items()))
+# print(dic.clear())
+#
+# # dic.get("키",디폴트 값) : 키에 연결된 값을 추출, 디폴트 값을 설정가능
+# dic= {"아이디": '홍길동', "레벨": 10, "체력": 100, "마나": 20, "공격력": 200, "방어력": 50}
+# print(dic["체력"])       # 키가 존재할 때는 동일
+# print(dic.get("체력"))
+# print(dic.get("민첩",0)) # 민첩 키가 존재하지 않으면 디폴트값으로 0을 출력
+# # print(dic["민첩"])     # 키가 존재하지 않을 때 : error
+# # print(dic.get("민첩")) # 키가 존재하지 않을 때 : None
+#
+# # if 문 작성시 (None, "", 0)은 거짓으로 분류됨
+# # if 문 에서는 dic.get()을 활용하는게 효과적
+# if dic.get('민첩'):
+#     print('민첩 능력이 있습니다')
+# else:
+#     print(('민첩 능력치가 존재하지 않습니다'))
+
+
+
+
+# 집합(set):{} =====================================================================
+# # 시퀀스 자료형이 아님, 순서가 없음, 중복 불허
+# # indexing 불가능
+#
+# # set() 만들기
+# s1=set([1,2,2,4])  # 리스트 자료를 기초로 집합(중복 제외)을 생성
+# print(s1)          # {1, 2, 4}, 중괄호로 표현, 원소 값만 존재함
+# s3=set()           # 공백의 set() 만들기
+# print(s3)
+# s2=set("hihello")  # 문자열도 가능함
+# print(s2)          # {'i', 'l', 'h', 'o', 'e'}
+# # 출력 순서가 문자열 순서와 일치하지 않음
+# # print(s1[2]) 인덱스 불가, 에러 발생: 순서가 없기 때문
+#
+# # indexing: list 혹은 tuple로 바꾼 후 적용
+# s11=list(s1)
+# print(s11)
+# print(s11[2])
+#
+# # 집합의 연산(교집합, 합집합, 차집합)
+# # 교집합: & , set1.intersection(set2)
+# s1=set([1,2,3,4,5,6])
+# s2=set([4,5,6,7,8,9])
+# print(s1&s2)
+# print(s1.intersection(s2))
+# # 합집합: | , set1.union(set2)
+# print(s1|s2)
+# print(s1.union(s2))
+# # 차집합: - , set1.difference(set2)
+# print(s1-s2)
+# print(s1.difference(s2))
+# print(s2.difference(s1))
+# print(s1.difference(s1))
+#
+# # set.함수
+#
+# # set.add(): 1개의 변수만 추가 가능
+# s3=set()
+# s3.add(3)
+# print(s3)
+#
+# # set.update([,,,]): 여러개 변수 추가 가능(중복x)
+# s3.update([1,2,3,5,6])
+# print(s3)
+#
+# # set.remove(): 제거
+# s3.remove(2)
+# print(s3)

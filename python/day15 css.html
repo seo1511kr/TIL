@@ -1,0 +1,121 @@
+<!--hover-box:hover{}
+focus-input:focus{}
+<input type="text" value="" class="focus-input">-->
+<!--
+
+
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .box{
+        background-color: #09c;
+        }
+        .hover-box:hover{
+        background-color:orange;
+        }
+        .focus-input:focus{
+        background-color:yellow;
+        }
+    </style>
+</head>
+<body class="focus-input">
+<div class="box hover-box">마우스를 올려주세요</div>
+<input type="text" value="click me" class="focus-input">
+</body>
+</html>-->
+
+
+<!--
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link
+</head>
+<body class="focus-input">
+<div style="width:200px;height:100px;background-color:purple;">마우스를 올려주세요</div>
+<div style="width:50%;height:20%;background-color:orange;">마우스를 올려주세요</div>
+</body>
+</html>
+-->
+<!--
+margin과 padding
+상우하좌 시계방향으로 돌아가며 개수가 부족할 때는 (상하)(우좌)가 짝을 이룸
+margin:100px (상하좌우여백)
+margin:50px 10px (상하 50px 좌우 10px)
+margin: 10px 20px 30px 40px (상하좌우)
+margin: 10px 20px 30px (상10하20좌우30)
+패딩: 안쪽여백-->
+
+
+<!--
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+	.box-container{
+		background-color: #d2f4ff;
+		border: 2px solid #09c;
+		margin: 5px 15px;
+	}
+	.box-container div{
+		width: 120px;
+		height: 80px;
+		background-color: #fde6ff;
+		border: 2px solid #90C;
+		font-size: 15px;
+	}
+	#box1{ margin: 10px;  padding: 0; }
+	#box2{ margin: 5px 25px; padding: 0; }
+	#box3{ margin: 0;  padding: 10px 30px 5px; }
+	#box4{ margin: 10px; padding: 10px 20px; }
+	#box5{ margin: 10px 30px 0 50px; padding: 30px 0 }    </style>
+</head>
+<body>
+	<div class="box-container">
+		<div id="box1">m: 10<br>p: 0</div>
+	</div>
+	<div class="box-container">
+		<div id="box2">m: 5 25<br>p: 0</div>
+	</div>
+	<div class="box-container">
+		<div id="box3">m: 0<br>p: 10 30 5</div>
+	</div>
+	<div class="box-container">
+		<div id="box4">m: 10<br>p: 10 20</div>
+	</div>
+	<div class="box-container">
+		<div id="box5">m: 10 30 0 50<br>p: 30 0</div>
+	</div>
+</body>
+</html>
+-->
+
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        #text1 {font-size: 40px}
+        #text2 {font-size: 30px}
+        #text3 {font-size: 20px}
+        .bold{font-weight:bold;}
+        .italic{font-style:italic}
+        .jinji{font-family:'궁서'}
+        #text4{font: italic bold 50px serif;}
+    </style>
+</head>
+<body>
+<div id="text1"> 40픽셀</div>
+<div id="text2"> 30픽셀</div>
+<div class="bold"> 굵은</div>
+<div class="italic"> 이탤릭</div>
+<div class="jinji"> 궁서</div>
+<div id="text4"> nice to meet you</div>
+<!--serif는 영문서체라 한글에는 디폴트값 적용-->
+</body>
+</html>
+
+
+
