@@ -424,3 +424,81 @@ margin: 10px 20px 30px (상10하20좌우30)
 </div>
 </body>
 </html>-->
+
+<!--day16==================================================================-->
+<!--
+.disp-none{display:none}
+.invisible{visibility:hidden}
+display:none은 출력될 빈공간마저 사라짐
+visibility:hidden은 출력은 안되지만 빈공간은 유지됨
+웹사이트 로그인 부분을 생각해보면 로그인 상태에서는 로그아웃 버튼만 로그아웃 상태에서는 로그인 버튼만 보이도록
+-->
+<!--=========================================================================-->
+
+<!--
+block태그:div, h, li, p태그
+자동 줄바꿈 기능
+inline태그(줄바꿈 하지 않음):a, i , b, span태그
+인라인 태그는 width나 height가 적용되지 않음
+inline-block(줄바꿈 x & width, height는 적용)
+-->
+<!--=========================================================================-->
+
+<!--position
+(static:디폴트 top, left 안먹힘)
+(relative:원래 위치에서부터, absolute:원래 위치와 관계없이)
+-->
+<!--=========================================================================-->
+
+<!--
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .disp-none{display:none}
+        .invisible{visibility:hidden}
+        .block1{width:200px;border:3px solid #222}
+        .block2{width:200px;border:3px solid #aaa}
+        .inline1{height:50px;background-color: yellow;}
+        .inline2{width:200px;border: 3px solid green;}
+        .inline-block1{background-color: yellow; display:inline-block; height:50px;}
+        .inline-block2{width:200px;border: 3px solid green;display:inline-block; width:200px;}
+
+        .box-container{
+        width:350px; border:2px solid red;
+        }
+        .box-container div{
+        padding:10px; border:2x solid green;background-color: skyblue;
+        }
+        #box1{position:static; top:50px; left:30px;}
+        #box2{position:relative; top:30px; left:50px;}
+        #box3{position:absolute; top:50px; left:30px;}
+
+    </style>
+</head>
+<body>
+
+<div class="disp-none">1</div>
+<div>2</div>
+<div class="invisible">3</div>
+<div>4</div>
+
+<div class="block1">5</div>
+<div class="block2">6</div>
+
+대<span class="inline1">한민</span>국
+대<span class="inline2">한민</span>국
+
+대<span class="inline-block1">한민</span>국
+대<span class="inline-block2">한민</span>국
+
+<div class="box-container">
+    <div id="box1">static</div>
+    <div id="box2">relative</div>
+    <div id="box3">absolute</div>
+</div>
+</body>
+</html>
+-->
+
+<!--=========================================================================-->
