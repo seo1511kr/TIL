@@ -1,0 +1,294 @@
+<!--# why javascript?
+(서버가 아닌)클라이언트에서 동적인 페이지를 만들어줌(클라이언트 스크립트 언어)
+서버에서 동적인 페이지를 만드는 언어: php,jsp,asp(서버 스크립트 언어)
+
+정적인 페이지: html,css
+동적인페이지: javascript(객체 기반 스크립트 언어)
+생성된(from 클래스) 객체를 이용하여 동적인 페이지를 기술하는 언어
+
+클래스와 객체는 정해져있는게 아님, 관점에 따라 가변적
+클래스 -> 객체생성(속성 초기화) -> 객체 동작...
+붕어빵기계 -> 붕어빵(크기:5센티, 내용물:팥...) -> 붕어빵굽는다...
+자동차공장 -> 자동차(색상:빨강, 배기량:3000...) ->달린다, 멈춘다...
+신(조물주)-> 사람(코:1개,눈2개,....) -> 먹는다, 잔다....
+사람-> 홍길동(키:160cm,눈:갈색,....) -> 먹는다, 잔다....
+날씨 ->  오늘 날씨예보객체 -> 오늘(현재)의 날씨(기온)은 맑음(흐름,눈,비...)기온(20,10,-5)
+        내일 날씨예보객체 -> 내일의 날씨(기온)은 맑음(흐름,눈,비...)기온(20,10,-5)
+
+사람객체와 자동차객체간 상호작용(ex. 사람이 자동차에 탄다, 사람이 자동차를 운전한다)-->
+
+
+<!--자바스킄립트 작성법==========================================================
+1)html문서 내에 작성
+<script type="text/javascript">
+객체.동작(내용);  의 구조로 작성
+document.write("hello");
+</script>
+
+2)별도로 파일(js)로 작성 -> html 문서에 포함
+<script type="text/javascript" src="test.js">
+=================================================================================-->
+
+<!--<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        document.write("hello");
+        document.write("bye");
+    </script>
+    <script type="text/javascript" src="test.js">
+    </script>
+</head>
+</html>-->
+
+<!--===============================================================================-->
+
+<!--=================================================================================
+<script></script> 태그속에서는 //가 주석임
+/*
+주석1     /* */로 여러줄의 주석 처리가능
+주석2
+주석3
+/*
+들여쓰기 상관은 없지만 깔끔하게 작성하는 습관을 들이는게 좋음
+tip. pycharm 상단 edit menu => indent selection
+ code menu => auto indent lines 가능도 있음
+ ==================================================================================-->
+
+
+<!--<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var a=10;           //var 는 variable 약자로서 변수를 의미
+        var b='k';          //js에서는 data의 type을 따로 명시할 필요가 없음
+                            //내부적으로 자동으로 정의해서 작동함
+                            //자바에서 변수를 선언할 때 type을 선언해야함
+        document.write(a);
+        document.write(b);
+
+        function myfunc(){  //함수 정의
+            return 3;
+        }
+        ret=myfunc()        //함수 호출
+        document.write(ret);
+        document.write(' ');
+
+        /*자바스크립트 자료 유형
+        Boolean:참 또는 거짓
+        String:문자열
+        Number:숫자형
+        null:빈 값
+        Nan:Not a Number,숫자가 아님
+        */
+
+        var c=0.5;
+        var d=-3.2;
+        var e=0x1af;  //16진수(0x)
+        var f=012;     //8진수(0)
+        document.write(c);
+        document.write("/");
+        document.write(d);
+        document.write("/");
+        document.write(e);
+        document.write("/");
+        document.write(f);
+        document.write("/");
+
+        var k='5';          //문자 + 숫자 -> 문자+ 문자로 자동변환
+        document.write(k+2);// '5' + '2' 로 출력
+        document.write("/");
+
+
+        document.write(parseInt(k)+2); //문자로된 숫자를 숫자로 변환해주는 함수
+        document.write("/");            // 문자 "5" -> 숫자 5
+
+        document.write(parseInt("hello")+2); //실수로 그냥 문자를 주면 NaN이 나옴
+        document.write("/");
+
+        document.write(Math.sqrt(9));  //square root(제곱근): 9의 제곱근은 3
+        document.write("/");
+        document.write(Math.sqrt(-2)) //NaN
+        document.write("/");
+        document.write(3/0)           //infinity
+        document.write("/");
+
+
+    </script>
+</head>
+</html>-->
+
+<!--===================================================================================-->
+<!--<script></script> 안에 type을 적지 않으면 javascript가 디폴트값임
+head가 아니라 body에 작성해도 상관없음
+alert(""): 실행시 창이뜸-->
+
+
+
+<!--===================================================================================-->
+
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+// Prompt함수=================================================================
+
+
+//quiz
+id=prompt("아이디:");
+if (id=="master"){
+pw=prompt("비밀번호:");
+if (pw==1234){alert("인증에 성공하였습니다");}
+else{alert("인증에 실패하였습니다");}
+}
+else{
+alert("아이디가 존재하지 않습니다");
+}
+
+
+
+// If조건문====================================================================
+/* if(조건){수행문;} => else if(){} => else if(){}... => else{}
+if(F) else if(T){수행1} else if(T){수행2} 의 경우에서 수행1만 시행하고 마침!
+if~else 구간에서 이미 T가 나오면 if 구문이 끝남.
+*/
+
+/*
+   if(false){
+   alert("1");
+   alert("2");
+   }
+   alert("3"); //조건문과는 별개로 동작
+*/
+
+/*
+   if(2>1){
+   alert("2가 1보다 큽니다");
+   }
+   if(true){
+   alert("2가 1보다 큽니다");
+   }
+   if(false){
+   alert("2가 1보다 큽니다");
+   }
+*/
+
+/*
+    if(false){
+    alert(1);
+    }
+    else{
+    alert(2);
+    }
+*/
+
+
+/*
+    if(false){
+    alert(1);
+    }
+    else if(true){
+    alert(3);
+    }
+    else if(true){
+    alert(4);
+    }
+*/
+
+/*
+    if(false){
+    alert(1);
+    }
+    else if(false){
+    alert(3);
+    }
+    else if(false){
+    alert(4);
+    }
+    else{
+    alert(5);
+    }
+*/
+
+// Boolean=============================================================================
+    // 1은 true 1이 아니면 false  cf) 파이썬은 0은 false 이외에는 true
+    document.write(true==1);
+    document.write("<br>")
+    document.write(true=="1");
+    document.write("<br>")
+
+    document.write(true==0);
+    document.write("<br>")
+    document.write(true=="0");
+    document.write("<br>")
+
+    document.write(1!=2);
+    document.write("<br>")
+    document.write(1>2);
+    document.write("<br>")
+
+    document.write("one"!="two");  //!==도 똑같음
+    document.write("<br>")
+    document.write("one"!="one");
+    document.write("<br>")
+
+    /*
+    alert(1==1);
+    alert("1"==1);  // True 내부적으로 연산을 하기 전에 자동 형변환
+    alert("1"===1); // False 자동형변환 x
+    */
+    document.write(new Date()); //실행할 때마다 시간이 바뀌는 동적 문서
+    document.write('<br>')
+
+    //alert((10+20)/10+2);
+    //alert(10%3);
+
+    var a=1     // 줄바꿈을 문장의 끝으로 인식하므로 세미클론을 생략해도 됨
+    //alert(a+1);
+
+
+    //var a=1; alert(a+1);
+
+
+    //alert("안녕".length); //문자열 길이
+
+    //alert("안녕\n하세요.\n자바스크립트");
+    document.write('안녕\n하세요.\n자바스크립트' + '<br/>');
+    document.write('안녕<br/>자바스크립트' + '<br/>');
+    document.write('he said "hello"' + '<br>');
+    //줄바꿈 alert 안에는 \n으로 document.write에서는 <br>
+
+    document.write("Chulsu's homepage" + '<br>');
+    document.write('he said "hello"' + '<br>');
+    document.write("Chulsu\'s homepage" + '<br>');
+    // 따옴표를 출력하고 싶을때는 밖에 묶어주는 따옴표를 다르게해야함 " ' " or ' " '
+    // 혹은 기호 앞에 \ 붙이기
+
+
+    document.write(typeof "1" + '<br>'); // 대상의:type
+    document.write(typeof 1 + '<br>'); // 대상의:type
+
+
+    /* alert('Hello world');
+    alert(1*2);
+    alert(1.5+2.4);
+    alert(1.5/2.4); */
+
+    document.write(Math.pow(3,2) + '<br/>'); //3의 2승
+
+    //정석: 클래스(대문자로 시작) -> 객체 ->
+    //이처럼 어떤 클래스는 객체없이 바로 함수를 생성가능
+
+    document.write(Math.pow(3,2) + '<br/>');
+    document.write(Math.round(1.7) + '<br/>'); //반올림
+    document.write(Math.ceil(1.2) + '<br/>');  //올림
+    document.write(Math.floor(2.9) + '<br/>'); //내림
+    document.write(Math.random() + '<br/>');   //난수 0~1
+
+</script>
+</body>
+</html>
