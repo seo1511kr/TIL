@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="88366c17-79e9-4ec4-8645-5006c8344a92" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/html,css/self_web_project/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/html,css/self_web_project/.gitattributes" afterDir="false" />
-    </list>
+    <list default="true" id="88366c17-79e9-4ec4-8645-5006c8344a92" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/html,css/self_web_project" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>

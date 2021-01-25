@@ -1,0 +1,166 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+    .hover-box:hover{
+    background-color:yellow;
+    }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+<h1>JavaScript</h1>
+document.write("hello world")
+
+<p>
+<script>
+    document.write("javascript================================================<br>");
+
+    document.write("hello world<br>");
+    document.write(2+3+"<br>");
+    document.write("hello world".length+"<br>");
+    alert("hello world".toUpperCase());
+    alert("hello world".indexOf('o'));
+    alert("hello world".indexOf('O')); //없는 건 -1 반환
+    alert("hello world".indexOf('hello')); //단어의 맨 앞글자의 index
+    alert("hello world".indexOf('world')); //단어의 맨 앞글자의 index
+
+    document.write("      hi      ".trim()+"<br>");//공백은 하나밖에 반영이 안됨
+    document.write("&nbsp&nbsp&nbsp hi &nbsp&nbsp&nbsp hello"+"<br>");//공백은 하나밖에 반영이 안됨
+
+
+    //length,...:어트리뷰트 == 프로퍼티 == 속성
+    //alert(),...:함수 ==메서드
+
+    document.write("javascript=====================================================");
+</script>
+</p>
+
+
+2+3<br>
+버튼을 클릭했을 때, 메시지가 출력되게 하기=>동적인 변화: javascript활용<br>
+~했을 때(event)에 해당되는 속성명: on <br><br>
+ID:<input type="text" value="input id" onchange="alert('change complete')">
+&lt;!&ndash;텍스트 입력후 밖에 마우스 클릭시&ndash;&gt;
+<input type="button" value="submit" onclick="alert('really sumbit?')"><br>
+
+PW:<input type="text" value="input pw" onkeydown="alert('keydown')">
+&lt;!&ndash;alert 먼저 실행하고 출력&ndash;&gt;
+<input type="button" value="submit" onclick="alert('really sumbit?')"><br>
+
+PW:<input type="text" value="input pw" onkeyup="alert('keyup')">
+&lt;!&ndash;출력이 먼저 되고 alert 실행&ndash;&gt;
+<input type="button" value="submit" onclick="alert('really sumbit?')"><br>
+
+search<input type="search" value="search word"><br>
+<input type="checkbox" value="input text"><br>
+<input class="hover-box" type="color"><br>
+
+</body>
+</html>-->
+
+
+
+<html>
+    <head>
+        <title>WEB1 - JavaScript</title>
+        <meta charset="utf-8">
+        <style>
+            .js{
+            font-weight:bold;
+            color:red;
+            }
+            #first{
+            color:green;
+            }
+            span{
+            color:blue;
+            }
+        </style>
+    </head>
+    <body>
+<!--    <span id="first">my script</span>
+    <span class="js">my script</span>
+    <span class="js" id="first">my script</span>
+
+    <span>my script</span>
+
+        <h1><a href="index.html">WEB</a></h1>
+    <h2 style="background-color:coral; color:skyblue;">JavaScript</h2>
+    <p class="js">Python</p>-->
+
+
+
+<!--
+    <input type="button" value="black" onclick="
+    document.querySelector('body').style.backgroundColor='black';
+    document.querySelector('body').style.color='white';
+">
+    <input type="button" value="white" onclick="
+    document.querySelector('body').style.backgroundColor='white';
+    document.querySelector('body').style.color='black';
+">
+-->
+
+    <h1>javascript</h1>
+    <p>java script html css</p>
+
+
+
+<!--   <h1>1==1</h1>
+   <h1>1===1</h1>
+   <h1>2>1</h1>
+   <h1>2&gt1</h1>
+   <h1>2&lt1</h1>
+    <script>
+        document.write("1"==1);
+        document.write(1==1);
+        document.write("1"===1);
+        document.write(2>1);
+
+    </script>-->
+
+
+
+<!--ID활용
+<p>
+<input id="toggle" type="button" value="black" onclick="
+if (document.querySelector('#toggle').value=='black'){
+document.querySelector('#toggle').value='white';
+document.querySelector('body').style.backgroundColor='black';
+document.querySelector('body').style.color='white';
+
+}
+else{
+document.querySelector('#toggle').value='black';
+document.querySelector('body').style.backgroundColor='white';
+document.querySelector('body').style.color='black';
+}
+">
+</p>
+-->
+
+
+
+
+<!--this.value활용
+<input type="button" value="black" onclick="
+var target=document.querySelector('body');
+if(this.value=='black'){
+target.style.backgroundColor='black';
+target.style.color='white';
+this.value='white';
+} else {
+target.style.backgroundColor='white';
+target.style.color='black';
+this.value='black';
+}
+">
+-->
+
+
+    </body>
+</html>
+

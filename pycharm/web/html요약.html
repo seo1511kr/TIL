@@ -1,0 +1,91 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        div.aa > div.bb >div.bb{
+        color:blue;
+        }
+        .aa .bb{
+        color:red;
+        }
+        .aa, .cc{
+        color:green;
+        }
+        th, td{
+        border:1px dotted black;
+        }
+        .hover-box:hover{
+        background-color:orange;
+        }
+        .focus-input:focus{
+        background-color:yellow;
+        }
+        .font1{
+        font-size:20px;
+        font-style:italic;
+        font-family:'궁서';
+        font-weight:bold;
+        }
+        .font2{
+        font: oblique bold 25px '돋음';
+        }
+    </style>
+</head>
+
+
+<body>
+<div class="font1">
+        font-size:20px;
+        font-style:italic;
+        font-family:'궁서';
+        font-weight:bold;
+</div>
+
+<div class="font2">(style weight size family) font: oblique bold 25px '돋음';</div>
+
+<div class="aa">aa or cc
+    <div class="cc">aa or cc<div class="bb">.aa & .bb</div></div>
+    <div class="bb">.aa & .bb<div class="bb">.aa > .bb >.bb</div></div>
+</div>
+
+<h1>h1:제목</h1>
+<strong>strong: 굵은 글씨</strong>
+<u>u:underline</u>
+<p>p:문단</p>
+
+
+<ol>ol순서가 있는 목차
+    <li>li</li>
+    <li>li</li>
+    <li>li</li>
+</ol>
+
+
+<ul>ul순서가 없는 목차
+    <li>li</li>
+    <li>li</li>
+    <li style="list-style-type:none;">list-stlye-type:none;</li>
+    <li style="list-style-type:square;">list-style-type:square;</li>
+    <li style="list-style-type:lower-alpha;">list-style-type:lower-alpha;</li>
+
+</ul>
+
+
+<table>
+    <tr><th>th제목</th><th>th제목</th></tr>
+    <tr><td>td</td><td rowspan="2">td rowspan</td></tr>
+    <tr><td>td</td></tr>
+    <tr><td colspan="2">td colspan</td></tr>
+</table>
+
+
+<a href="https://www.naver.com" target="_blank">네이버_black</a>
+<a href="https://www.naver.com" target="_self">네이버_self</a>
+<a href="https://www.naver.com" target="_self" style="text-decoration:none;">네이버{text-decoration:none;}</a>
+<a href="https://www.naver.com" target="_self" style="text-decoration:none;color:black;">네이버{text-decoration:none;color:black;}</a>
+
+<div class="hover-box">마우스를 올려주세요:hover{}</div>
+<input type="text" value=".focus{}" class="focus-input">
+
+</body>
+</html>
