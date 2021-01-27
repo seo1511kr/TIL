@@ -1,0 +1,262 @@
+<!--클래스(속성, 메서드(오버라이딩:변형))-->
+
+
+<!--<html>
+    <head>
+        <title>WEB1 - JavaScript</title>
+        <meta charset="utf-8">
+        <script>
+        //색 변경 기능을 따로 함수로 분리함
+            function setBodyColor(color){
+                document.querySelector('body').style.color=color;
+            }
+
+            function setBackColor(color){
+                document.querySelector('body').style.backgroundColor=color;
+
+            }
+
+
+
+            function setColor(color) {
+                var alist = document.querySelectorAll('a');
+                var i = 0;
+                while(i < alist.length) {
+                    alist[i].style.color = color;
+                    i = i + 1;
+                }
+            }
+
+
+            function nightDayHandler(self) {
+                var target = document.querySelector('body');
+                if(self.value === 'night') {
+                    setBackColor('black');
+                    setBodyColor('white');
+                    self.value = 'day';
+
+                    setColor('powderblue');
+                } else {
+                    setBackColor('white');
+                    setBodyColor('black');
+                    self.value = 'night';
+
+                    setColor('blue');
+                }
+            }
+        </script>
+    </head>
+
+
+<body>
+        <h1><a href="index.html">WEB</a></h1>
+
+        <input type="button" value="night" onclick="
+            nightDayHandler(this);
+        ">
+
+        <ol>
+            <li><a href="1.html">HTML</a></li>
+            <li><a href="2.html">CSS</a></li>
+            <li><a href="3.html">JavaScript</a></li>
+        </ol>
+        <h2>JavaScript란 무엇인가?</h2>
+        <p>JavaScript (/ˈdʒɑːvəˌskrɪpt/),[6] often abbreviated as JS, is a high-level, interpreted programming language. It is a language which is also characterized as dynamic, weakly typed, prototype-based and multi-paradigm. Alongside HTML and CSS, JavaScript is one of the three core technologies of the World Wide Web.[7] JavaScript enables interactive web pages and thus is an essential part of web applications. The vast majority of websites use it,[8] and all major web browsers have a dedicated JavaScript engine to execute it.</p>
+
+        <input type="button" value="night" onclick="
+            nightDayHandler(this);
+        ">
+    </body>
+</html>-->
+
+
+
+<!--js5-2-->
+
+<!--<html>
+<head>
+    <meta charset="UTF-8">
+
+</head>
+
+<body>-->
+
+<!--객체는 딕셔너리 형태로 표현, 순서가 없음-->
+<!--반면 배열은 순서가 있음-->
+
+
+<!--<script>
+    var a=['test1','test2'];
+    a[0];
+    a[1];
+</script>-->
+
+<!--
+<script>
+    var coworkers={
+    "programmer":"kim",//객체의 속성
+    "designer":"lee"
+    }
+    document.write("개발자명:"+coworkers.programmer+"<br>");
+    document.write("디자이너:"+coworkers.designer+"<br>");
+
+    //속성을 추가하는 방법 2가지, 속성명에는 공백은 배제하기!!
+    coworkers["dataScientist"]="park";
+    document.write("데이터과학자:"+coworkers.dataScientist+"<br>");
+    coworkers.doctor="choi";
+    document.write("의사:"+coworkers.doctor+"<br>");
+
+
+    for (var k in coworkers){
+    document.write(k+":"+coworkers[k]+"<br>");
+    }
+</script>
+
+<h2>객체에 메서드(함수) 정의</h2>
+
+
+<script>
+//객체명.함수명
+// 함수안의 변수를 this로 설정하여 다른 객체에도 적용 가능하도록
+coworkers.showAll=function(){
+    for(var k in this){
+    document.write(k+":"+this[k]+"<br>");
+    }
+}
+coworkers.showAll();
+</script>
+
+
+</body>
+</html>-->
+
+
+<!--<html>
+    <head>
+        <title>WEB1 - JavaScript</title>
+        <meta charset="utf-8">
+        <script>
+            function LinksSetColor(color) {
+                var alist = document.querySelectorAll('a');
+                var i = 0;
+                while(i < alist.length) {
+                    alist[i].style.color = color;
+                    i = i + 1;
+                }
+            }
+            function BodySetColor(color) {
+                document.querySelector('body').style.color = color;
+            }
+            function BodySetBackgroundColor(color) {
+                document.querySelector('body').style.backgroundColor = color;
+            }
+    var Body = {
+        setBackgroundColor:function(color){
+        document.querySelector('body').style.backgroundColor = color;
+        },
+        setColor:function(color){
+        document.querySelector('body').style.color = color;
+        }
+    }
+
+    var Links = {
+                setColor: function(color) {
+                    var alist = document.querySelectorAll('a');
+                    var i = 0;
+                    while(i < alist.length) {
+                        alist[i].style.color = color;
+                        i = i + 1;
+                    }
+                }
+            }
+
+
+function nightDayHandler(self) {
+                var target = document.querySelector('body');
+                if(self.value === 'night') {
+                    Body.setBackgroundColor('black');
+                    Body.setColor('white');
+                    self.value = 'day';
+
+                    Links.setColor('powderblue');
+                } else {
+                    Body.setBackgroundColor('white');
+                    Body.setColor('black');
+                    self.value = 'night';
+
+                    Links.setColor('blue');
+                }
+            }
+        </script>
+    </head>
+
+<body>
+        <h1><a href="index.html">WEB</a></h1>
+
+        <input type="button" value="night" onclick="
+            nightDayHandler(this);
+        ">
+
+        <ol>
+            <li><a href="1.html">HTML</a></li>
+            <li><a href="2.html">CSS</a></li>
+            <li><a href="3.html">JavaScript</a></li>
+        </ol>
+        <h2>JavaScript란 무엇인가?</h2>
+        <p>JavaScript (/ˈdʒɑːvəˌskrɪpt/),[6] often abbreviated as JS, is a high-level, interpreted programming language. It is a language which is also characterized as dynamic, weakly typed, prototype-based and multi-paradigm. Alongside HTML and CSS, JavaScript is one of the three core technologies of the World Wide Web.[7] JavaScript enables interactive web pages and thus is an essential part of web applications. The vast majority of websites use it,[8] and all major web browsers have a dedicated JavaScript engine to execute it.</p>
+
+        <input type="button" value="night" onclick="
+            nightDayHandler(this);
+        ">-->
+
+
+<!--<script>
+    var person={
+    name:"kim",
+    hello:function(msg){
+    document.write("say hello"+msg);
+        }
+    }
+    person.hello();
+    document.write(person.name);
+    person.hello("world");
+</script>-->
+
+<script>
+    var re=/ab+c/; //정규표현식을 슬래쉬로 감싸는 방법으로 표현
+    var re=RegExp("ab+c");//RegExp클래스 객체 생성
+
+
+    var myRe=/cdb+d/;
+    var myArray=myRe.exec("cdbbddbsbz");
+    document.write(myArray+"<br>");
+
+    var myRe=/[cdb]d*/;
+    var myArray=myRe.exec("cdbbddbsbz");
+    document.write(myArray+"<br>");
+
+    document.write(/abc/.exec("this is abc")+"<br>");
+    document.write(/abc/.exec("this is ab c")+"<br>");
+    document.write(/ab?c/.exec("this is ac")+"<br>");
+    document.write(/a\d/.exec("this is a\d")+"<br>");
+    document.write(/a\*d/.exec("this is a*d")+"<br>");
+    //특수문자를 문자 그 자체로 보게하기: \
+    document.write(/a\\d/.exec("this is a\d")+"<br>");
+
+    document.write(/^A/.exec("An")+"<br>");
+    document.write(/[^0-9]/.exec("An")+"<br>");
+    document.write(/t$/.exec("eat")+"<br>");
+
+    document.write(/(test)/.exec("zoo test bar")+"<br>");
+    document.write(/(zoo) (bar)/.exec("zoo bar test")+"<br>");//찾고 저장한 결과를 모두 출력
+    document.write(/(zoo) (bar)/.exec("zoo test bar")+"<br>");
+
+</script>
+<!--정규표현식 예제-->
+<!--/Chapter(\d+)\.\d*/-->
+<!--RegExp.exec는 파이썬의 search와 같은 개념임, match랑 헷갈리면 안됨!-->
+<!--그래서 길이를 제한할 때 앞에는 ^ 뒤에는 $을 꼭 붙여줘야함 뒤에$만 붙이는 걸로는 안됨!-->
+
+
+</body>
+</html>

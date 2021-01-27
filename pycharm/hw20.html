@@ -1,0 +1,45 @@
+<!--# 3. 입력 체크(자바스크립트)
+# 입력박스, 버튼
+# 입력박스에 데이터(아이디) 입력 -> 버튼 클릭 -> 검증(아이디가 6자 이상 12자 이하면 -> 사용가능, 그렇지 않으면 -> 사용불가)
+# <input type="text" id="myid"/>
+# <input type="button" id="chk" value="validation" onclick="
+# 작성하세요
+# num=document.getElementById('myid').value;
+#
+# "
+# />-->
+<html>
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+<script>
+
+</script>
+<input type="text" id="myid" value="아이디입력">
+<input type="button" id="chk" value="검사" onclick="
+var target=document.getElementById('myid');
+check=target.value.length;
+var re=/^[\w가-힣]{6,12}$/;
+if (re.exec(target.value)){
+alert('사용가능');
+}
+else{
+alert('사용불가능: 6~12자리\n 영문대소문자 국문,숫자만 가능');
+}
+
+">
+
+</body>
+
+</html>
+
+<!--
+a=target.length
+if (a >= 6 and a <=12){
+alert('사용가능');
+}
+else{
+alert('사용불가');
+}-->
