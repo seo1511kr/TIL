@@ -67,17 +67,20 @@
 # (0-10)
 # (SDT)
 # (*#)
+info = "1D2S3T*"
 
-info = "1D2S*10S"
 def calscore(info):
     import re
-    print(re.findall("\d+[SDT][*#]?",info))
     info_li=re.findall("\d+[SDT][*#]?",info)
-    for rep in range(len(info_li)):
-        if (rep >0) and ("*" in info_li[rep]):
+    info_li.insert(0,"0") #['0', '1D', '2S', '3T*']
+    for rep in range(1,len(info_li)):
+        if "*" in info_li[rep]:
             info_li[rep-1]="("+info_li[rep-1]+")*2"
             info_li[rep]="("+info_li[rep].replace("*",")*2") # ['(1D)*2', '(2S)*2', '10S']
-    score="+".join(info_li)  #'(1D)*2+(2S)*2+10S'
+        elif "#" in info_li[rep]:
+            info_li[rep]=info_li[rep].replace("#","*-1")
+    score="+".join(info_li)
+    print(score)#'(1D)*2+(2S)*2+10S'
     score=eval(score.replace("S","").replace("D","**2").replace("T","**3")) # (1**2)*2+(2)*2+10
     return score
 
@@ -132,7 +135,6 @@ print(calscore(info))
 #     print(re.findall("[a-zA-Z]+",i))
 n=3
 cities=["Jeju", "Pangyo", "Seoul", "NewYork", "LA", "Jeju", "Pangyo", "Seoul", "NewYork", "LA"]
-n,cities=input()
 def howlong(n,cities):
 
     cities=" ".join(cities).lower().split(" ") #['jeju', 'pangyo', 'seoul', 'newyork', 'la', 'jeju', 'pangyo', 'seoul', 'newyork', 'la']

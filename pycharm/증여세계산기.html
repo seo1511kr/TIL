@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>증여세 계산기</title>
+</head>
+<body>
+
+<div>**증여세= 과세표준 x 세율**
+<br>**과세표준 = 증여재산 - 증여재산공제액**
+<br><br><br>
+</div>
+
+<input type="text" value="증여재산">
+<input type="text" value="부채부담액">
+<input type="text" value="과거증여액">
+
+<script>
+</script>
+<div><span>배우자</span><input type="checkbox" class="whogive" value="배우자" onclick="
+var checky=this.value;
+alert(checky);
+
+">
+    <span>직계존속</span><input type="checkbox" class="whogive" value="직계존속" onclick="
+var checky=this.value;
+alert(checky);
+">
+    <span>직계비속</span><input type="checkbox" class="whogive" value="직계비속" onclick="
+var checky=this.value;
+alert(checky);
+">
+    <span>기타친족</span><input type="checkbox" class="whogive" value="기타친족" onclick="
+var checky=this.value;
+alert(checky);
+">
+</div>
+
+
+</body>
+</html>
