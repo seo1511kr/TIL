@@ -76,15 +76,16 @@ def howmanyRoute(N,board):
             if jump > 0:
                 if col + jump <= N-1:
                     new_start1=[row,col+jump]
-                    dp[new_start1[0]][new_start1[1]] += dp[row][col]
+                    dp[new_start1[0]][new_start1[1]] += 1
                     if new_start1 not in new_starts:
-                        new_starts.append(new_start1)
+                    new_starts.append(new_start1)
+                    else:
 
                 if row + jump <= N-1:
                     new_start2=[row+jump,col]
-                    dp[new_start2[0]][new_start2[1]] += dp[row][col]
-                    if new_start2 not in new_starts:
-                        new_starts.append(new_start2)
+                    dp[new_start2[0]][new_start2[1]] += 1
+                    # if new_start2 not in new_starts:
+                    new_starts.append(new_start2)
         if [N-1,N-1] in new_starts:new_starts.remove([N-1,N-1])
         # 다 푼줄 알았을 때 오류 발생 경로에 도착한 애들이 다시 한 번 본인들 만큼의 횟수를 추가해서
         # 결과가 훨씬 크게 나왔음 그래서 이미 도착한 애들은 새로운 시작점 리스트에서 제외하는
@@ -130,3 +131,6 @@ print(howmanyRoute(n,Board))
 #     b=int(test[0])
 #     res= combi(b,a)
 #     print(int(res))
+
+
+

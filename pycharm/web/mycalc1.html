@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>내가 만든 계산기</title>
+    <script>
+    window.onload=function(){
+    //alert("window객체의 onload 함수에 대해 정의. 콜백함수 : 함수 이름이 on으로 시작.\n on상황():상황이(발생) 되었을때 자동호출");
+
+    //btnSend(계산)버튼을 클릭하면 chkData함수를 호출해라
+    document.getElementById("btnSend").onclick=chkData;
+    }
+
+    function chkData(){
+    //alert("데이터 검증 함수가 호출됨");
+    //검증하는 코드 작성
+
+        if(frm.num1.value===""){
+        alert("숫자1에 값을 입력하시오");
+        frm.num1.focus();
+        return;
+    }
+
+    // 숫자, 음수 기호, 소수점만 입력 가능하도록 정규식 정의
+    var regEx1=/^[-]?\d*\.?\d*$/;
+if(!frm.num1.value.match(regEx1)){  //매치되지 않는다면
+        alert("숫자만 입력하시오");
+        frm.num1.value="";
+        frm.num1.focus();
+        return;
+        }
+
+
+
+
+            if(frm.num2.value===""){
+        alert("숫자2에 값을 입력하시오");
+        frm.num2.focus();
+        return;
+    }
+
+        // 숫자, 음수 기호, 소수점만 입력 가능하도록 정규식 정의
+    var regEx2=/^[-]?\d*\.?\d*$/;
+if(!frm.num2.value.match(regEx2)){  //매치되지 않는다면
+        alert("숫자만 입력하시오");
+        frm.num2.value="";
+        frm.num2.focus();
+        return;
+        }
+
+        var su1=frm.num1.value;
+        var su2=frm.num2.value;
+
+        isOpChecked=false;
+
+        for(var i=0;i<frm.op.length;i++){
+            if(frm.op[i].checked){
+                //oper=frm.op[i].id;
+                //alert(oper+" 연산자가 선택되어 있음");
+                isOpChecked=true;
+                opera=frm.op[i].value
+
+             //res에 계산값 보냄  return 넣어서 반복 단축
+
+            // num1이나 num2에 0이 나오고 나눗셈이 선택된 경우
+            if (opera=="/"){
+            var exceptzero=/^0$/;
+            if(exceptzero.exec(su1) || exceptzero.exec(su2)){
+            alert("0으로 나눌 수 없습니다");
+            frm.num1.value="";
+            frm.num2.value="";
+            document.getElementById('res').value="";
+            return;
+            }
+            }
+
+           // --연속으로 나와서 error나는 경우
+           // radio박스에 value를 부여해서 계산식 코드 간편화
+             var target=su1 +opera+ su2;
+             var exceptsub=/[-]{2}/;
+             if(exceptsub.exec(target)){
+             return document.getElementById('res').value=eval(su1+su2+"*"+"-1");
+             }
+            else{
+            return document.getElementById('res').value=eval(su1 +opera+ su2);
+                }
+
+            }
+        }
+        if(!isOpChecked){
+            alert("연산자를 선택해주세요");
+            return;
+            }
+
+    }
+
+    </script>
+
+<!--    <script>
+        function myfunc(){
+        alert("호출됨");
+        }
+     window.onload=myfunc;
+    </script>-->
+</head>
+<!--<body onload="myfunc();">-->
+<body>
+<form name="frm">
+    <label>숫자 1 : <input type="text" name="num1"></label><br>
+    <label>숫자 2 : <input type="text" name="num2"></label><br><br>
+
+    연산 :
+    <label for="add">+</label><input type="radio" value="+" name="op" id="add">
+    <label for="sub">-</label><input type="radio" value="-" name="op" id="sub">
+    <label for="mul">*</label><input type="radio" value="*" name="op" id="mul">
+    <label for="div">/</label><input type="radio" value="/" name="op" id="div">
+<br>
+    결과 : <input type="text" id="res" readonly="readonly"><br>
+    <input type="button" value="계산" id="btnSend">
+    <input type="reset" value="지우개" id="btnClear">
+</form>
+</body>
+</html>

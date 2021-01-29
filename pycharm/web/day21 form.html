@@ -6,13 +6,96 @@
 </head>
 <body>
 
-<form action="실행app의 위치(주소)" enctype="text/plain" method="post">
+<form action="aaa.com.jsp" enctype="text/plain" method="post" name="">
+<fieldset>
+<!--폼 내의 요소들을 그룹으로 묶어주는 태그-->
+    <legend>개인정보</legend>
 
+<!--1) 입력상자와 라벨을 묵시적으로 연결한경우
+텍스트 상자 말고 라벨을 클릭해도 해당 input에 입력가능한 모드가 됨-->
+    <label>이름:<input type="text"></label><br>
+    <label>주소:<input type="text"></label><br>
+    <label>나이:<input type="text"></label><br>
+
+<!--2) 라벨과 input을 명시적으로 연결한경우 id와 for 사용-->
+    <input type="radio" name="color-select" id="abc" value="blue">
+    <label for="abc">파랑</label>
+    <input type="radio" name="color-select" id="def" value="yellow">
+    <label for="def">노랑</label>
+
+<!--3) 입력상자와 라벨을 연결하지 않은경우-->
+    <label>나이</label><input type="text"><br>
+
+    <input type="submit" value="서버로 전송"><br>
+    <input type="reset" value="리셋"><br>
+    <input type="button" value="클릭 미"><br>
+    <input type="file" accept="image/jpeg"><br>
+    <input type="checkbox" name="nation" value="kor" checked="checked">한국
+<!--    default로 한국 선택 checked 옵션-->
+    <input type="checkbox" name="nation" value="usa">미국
+    <input type="checkbox" name="nation" value="chn">중국<br>
+
+    <input type="number" value="spinner"><br>
+    <input type="range" value="range" min="5" max="10"><br>
+    <input type="date"><br>
+
+<!--이메일(@), url(http:알파벳), tel 형식이 유효한지 check해줌-->
+    <input type="email"><br>
+    <input type="url"><br>
+    <input type="tel"><br>
+
+    <input type="image" src="btn.jpg"><br>
+    <input type="text" value="1234" disabled="disabled"><br>
+    <input type="text" value="1234" readonly="readonly"><br>
+    <input type="text"><br> <!--23글자 정도-->
+    <input type="text"size="10"><br>
+    <input type="text" pattern="[A-Z]+" placeholder="영문 대문자만 입력"><br>
+<!--input 안에 default로 안내사항 나타냄
+pattern 속성과 정규표현식을 활용하여 을 추가하여 형식을 맞춰줄 수 있음-->
+    <textarea rows="10" cols="40" maxlength="500" placeholder="500자 이내 작성"></textarea>
+
+    <select size="7">
+        <option value="c">c언어</option>
+        <option value="py" selected="selected">파이썬</option>
+        <option value="js">자스언어</option>
+        <option value="c">c언어</option>
+        <option value="py">파이썬</option>
+        <option value="js">자스언어</option>
+    </select>
+<input type="button" value="전송하기">
+<button type="button">클릭하기</button>
+<button type="submit">전송하기</button>
+<button type="reset">리셋하기</button>
+
+    <!--button 과 submit)의 차이
+    서브밋: 곧바로 서버에 폼 내용을 전송
+    버튼: onclick으로 자바스크립트 함수 호출 -> 함수 내에서 유효성 검증 -> 검증 수행후 전송-->
+
+    <script>
+
+    </script>
+<!--    줄이 10줄 넘어가면 저절로 스크롤이 생김-->
+
+
+
+
+
+<!--    -->
+<!--라디오 박스는 여러개중 하나-->
+<!--체크박스는 여러개 동시에 선택가능-->
+    <label><input type="submit"></label>
+
+<!--아직 action에 주소가 없기 때문에 제출을 눌러도 404에러가 뜸-->
+<!--레이블과 라벨의 차이
+레이블: 예측결과(데이터 모델 -> 예측 결과(pass/fail))-->
+
+</fieldset>
 <!--enctype은 데이터 인코딩 방식(파일로 보낼때만 multipart/form으로 하고 보통 디폴트값으로)    -->
 <!--method:파일 전송 방식(get,post)
 get방식:www.aaa.com?id=F3F2...&addr=%F%3..
 데이터가 url에 오픈되고 url한줄에 담아야하기 때문에 중요하지 않은 데이터를 빠르게 전송해야될 상황
-post방식:-->
+post방식:상자에 담아서 보내는 방식으로 보안에 상대적으로 좋음, 데이터 양이나 양식에 제한이 덜하다
+-->
     <!--
 여기서는 회원가입 처리 application
 아이디
@@ -23,6 +106,7 @@ DB: 아이디가 이미 사용중인지 check => response
 -->
 </form>
 
+<!--
 <input type="radio" value="radio">
 <input type="checkbox" value="checkbox">
 <input type="text" value="text">
@@ -33,6 +117,7 @@ DB: 아이디가 이미 사용중인지 check => response
 <input type="datetime-local" value="datetime-local">
 <input type="reset" value="reset">
 <input type="image" value="image">
+-->
 
 
 </body>
