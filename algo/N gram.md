@@ -1,53 +1,8 @@
-# 1. 레벤슈타인 알고리즘
-
-#### * 문장 유사도 구할때 사용됨
-
-```
-편집거리 알고리즘 문자를 삽입, 삭제, 치환하여 
-다른 문자열로 변형하는데 필요한 <최소> 횟수를 구하는 것
-```
-
-https://en.wikipedia.org/wiki/Levenshtein_distance
-
-
-
-#### * 동적계획법(DP)기반으로 이뤄짐: 큰 문제를 부분으로 쪼개서 부분문제를 반복적으로 해결
-
-```
-피보나치 수열을 구할 때 이전 값2개를 더하면 된다는 것을 인지하고
-
-3 계산된 값들을 계속 저장해나가면서 이전 값 2개만 더하는 연산을 반복해서 구하기
-```
-
-
-
-#### * 원리
-
-
-
-![image-20210129095337668](Leben_distance.assets/image-20210129095337668.png)
-
-```
-str1 str2의 각 길이 +1에 해당하는 array를 만든 후
-
-=> array의 각 칸의 값을 채워나가며 마지막 칸을 도출해내는 과정
-```
-
-![image-20210129095458001](Leben_distance.assets/image-20210129095458001.png)
-
-min(deletion, insertion, substitution)으로 각 칸을 채워주기
-
-#### * 코드 구현
-
-<substitutionCost는 새로 추가되는 단어가 서로 같으면 0 틀리면 1>
-
-
-
-![](Leben_distance.assets/image-20210129095413072.png)
-
-#  2. N gram
+#  N gram
 
 * 자연어처리 도움되는 블로그
+
+
 
 https://lovit.github.io/nlp/2018/10/23/ngram/
 
@@ -57,13 +12,13 @@ https://en.wikipedia.org/wiki/N-gram
 #### 자연어 처리 분야(분류)에서 logistic regression과 주로 사용
 
 ```
-
 문장이나 문서를 bag-of-words model 로 나타낼 때 일반적으로 unigram 이 이용됩니다. 
 
 그런데 문서 분류 문제에서는 unigram 보다 bigram 이 정보력이 더 좋습니다. Bigram 은 연속된 두 개의 단어를 하나의 단어로 이용하는 것입니다. 그리고 연속된 n 개의 단어를 하나의 단어로 이용하는 것을 n-gram 이라 합니다. 그러나 데이터에 등장하는 모든 n-grams 를 이용하면 bag-of-words model 의 차원이 기하급수적으로 커집니다. 
 
 출처: https://lovit.github.io/nlp/2018/10/23/ngram/
 ```
+https://konlpy.org/ko/latest/#
 
 ```
 unigram: 재미
@@ -75,7 +30,7 @@ bigram: 재미+없는/ 재미+있는
 * 로우데이터를 형태소 분석기로 전처리 한 후 N-gram 적용.
   음성인식도 결국에는 NPL이나 다름없음
 * konlpy라이브러리(형태소 분석기 종류: kkoran, okt 등등)
-  =>konply.org
+
 * API(실무에서 제일 많이쓰이는 것들)
 1. Mecab Class
 2. Okt Class
@@ -143,4 +98,3 @@ for voca in token:
 # 재등장한 단어는 해당하는 인덱스의 위치에 1을 더해줍니다. (단어의 개수를 세는 것입니다.)  
 print(word2index)  
 ```
-

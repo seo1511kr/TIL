@@ -1,4 +1,4 @@
-#1463
+# 백준1463
 # 정수 X에 사용할 수 있는 연산은 다음과 같이 세 가지 이다.
 #
 # X가 3으로 나누어 떨어지면, 3으로 나눈다.
@@ -30,7 +30,7 @@
 # N이 1보다 작은 경우는 None이 출력되도록 if조건을 걸어줌
 
 
-#1890번
+# 백준1890번
 # N×N 게임판에 수가 적혀져 있다.
 # 이 게임의 목표는 가장 왼쪽 위 칸에서 가장 오른쪽 아래 칸으로 규칙에 맞게 점프를 해서 가는 것이다.
 #
@@ -48,56 +48,55 @@
 # 2 1 4 8 2
 # 8 6 7 5 0
 
+#
+# n=int(input())
+# Board=[]
+# for i in range(n):
+#     Board.append(input().replace(" ",""))
+#
+#
+# def howmanyRoute(N,board):
+#     if board[0][0]=="0":return 0
+#     dp=[]
+#     for i in range(N):
+#         dp.append([int(i) for i in "".zfill(N)])
+#
+#     jump_col=int(board[0][0])
+#     jump_row=int(board[0][0])
+#
+#
+#     total_starts=[[[0,0]]]
+#     dp[0][0]=1
+#     for start_list in total_starts:
+#         new_starts=[]
+#         for i in start_list:
+#             row=i[0]
+#             col=i[1]
+#             jump=int(board[row][col])
+#             if jump > 0:
+#                 if col + jump <= N-1:
+#                     new_start1=[row,col+jump]
+#                     dp[new_start1[0]][new_start1[1]] += 1
+#                     if new_start1 not in new_starts:
+#                        new_starts.append(new_start1)
+#                     else:
+#
+#                 if row + jump <= N-1:
+#                     new_start2=[row+jump,col]
+#                     dp[new_start2[0]][new_start2[1]] += 1
+#                     # if new_start2 not in new_starts:
+#                     new_starts.append(new_start2)
+#         if [N-1,N-1] in new_starts:new_starts.remove([N-1,N-1])
+#         # 다 푼줄 알았을 때 오류 발생 경로에 도착한 애들이 다시 한 번 본인들 만큼의 횟수를 추가해서
+#         # 결과가 훨씬 크게 나왔음 그래서 이미 도착한 애들은 새로운 시작점 리스트에서 제외하는
+#         # if 조건문을 추가했음
+#         if len(new_starts)==0:break
+#         total_starts.append(new_starts)
+#     return dp[N-1][N-1]
+#
+# print(howmanyRoute(n,Board))
 
-n=int(input())
-Board=[]
-for i in range(n):
-    Board.append(input().replace(" ",""))
 
-
-def howmanyRoute(N,board):
-    if board[0][0]=="0":return 0
-    dp=[]
-    for i in range(N):
-        dp.append([int(i) for i in "".zfill(N)])
-
-    jump_col=int(board[0][0])
-    jump_row=int(board[0][0])
-
-
-    total_starts=[[[0,0]]]
-    dp[0][0]=1
-    for start_list in total_starts:
-        new_starts=[]
-        for i in start_list:
-            row=i[0]
-            col=i[1]
-            jump=int(board[row][col])
-            if jump > 0:
-                if col + jump <= N-1:
-                    new_start1=[row,col+jump]
-                    dp[new_start1[0]][new_start1[1]] += 1
-                    if new_start1 not in new_starts:
-                    new_starts.append(new_start1)
-                    else:
-
-                if row + jump <= N-1:
-                    new_start2=[row+jump,col]
-                    dp[new_start2[0]][new_start2[1]] += 1
-                    # if new_start2 not in new_starts:
-                    new_starts.append(new_start2)
-        if [N-1,N-1] in new_starts:new_starts.remove([N-1,N-1])
-        # 다 푼줄 알았을 때 오류 발생 경로에 도착한 애들이 다시 한 번 본인들 만큼의 횟수를 추가해서
-        # 결과가 훨씬 크게 나왔음 그래서 이미 도착한 애들은 새로운 시작점 리스트에서 제외하는
-        # if 조건문을 추가했음
-        if len(new_starts)==0:break
-        total_starts.append(new_starts)
-    return dp[N-1][N-1]
-
-print(howmanyRoute(n,Board))
-
-
-## 해결책 try except?
 
 
 
@@ -106,7 +105,8 @@ print(howmanyRoute(n,Board))
 # 1010
 # 다리놓기
 #무난하게 쉬운줄 알았지만 facotrial로 계산시 계산량이 어마무시
-# combination 함수를 따로 만들어줘서 해결했음
+
+#==>1. combination 함수를 따로 만들어줘서 해결했음
 
 # T=int(input())
 # test_li=[]
@@ -133,4 +133,16 @@ print(howmanyRoute(n,Board))
 #     print(int(res))
 
 
-
+# ==>2. 동적프로그래밍, 재귀호출로 팩토리얼 만들기
+# import sys
+# sys.setrecursionlimit(10**6)
+# def facto(num):
+#     num=[1,num]
+#     def multiex(num):
+#         if num[1]==1: return num[0]
+#         else:
+#             num[0]*=num[1]
+#             num[1]-=1
+#         return multiex(num)
+#     return multiex(num)
+# print(facto(5))

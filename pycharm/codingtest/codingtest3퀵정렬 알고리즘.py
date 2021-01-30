@@ -172,32 +172,25 @@
 #                 sort_ele.append([j for j in i if j > i[0]])
 #     q_sort=sort_ele
 
-N=int(input())
-target=[]
-for i in range(N):
-    target.append(int(input()))
-
-def q_sort(list):
-    if len(list) <=1: return list
-    pivot=list[len(list)//2]
-    left=[]
-    right=[]
-    for i in range(0,len(list)):
-        if list[i] < pivot:
-            left.append(list[i])
-        elif list[i] > pivot:
-            right.append(list[i])
-
-    return q_sort(left)+[pivot]+q_sort(right)
-ans=q_sort(target)
-print("\n".join(ans))
-
-
-
-
-
-
-
+# N=int(input())
+# target=[]
+# for i in range(N):
+#     target.append(int(input()))
+#
+# def q_sort(list):
+#     if len(list) <=1: return list
+#     pivot=list[len(list)//2]
+#     left=[]
+#     right=[]
+#     for i in range(0,len(list)):
+#         if list[i] < pivot:
+#             left.append(list[i])
+#         elif list[i] > pivot:
+#             right.append(list[i])
+#
+#     return q_sort(left)+[pivot]+q_sort(right)
+# ans=q_sort(target)
+# print("\n".join(ans))
 
 
 
@@ -219,3 +212,56 @@ print("\n".join(ans))
 #
 # for j in info_li:
 #     print(check(j))
+
+
+arr = [3, 5, 1, 2, 9, 6, 4, 5, 7]
+
+
+def merge_sorted(arr):
+    if len(arr) > 1:
+        mid = len(arr) // 2
+        left = arr[:mid]
+        print(left)#[3, 5, 1, 2] [3, 5] [3] [1]
+
+
+
+        right = arr[mid:]
+        print(right)#[9, 6, 4, 5, 7] [1, 2] [5] [2]
+
+
+        l = merge_sorted(left)
+        print(l)# [3] [1]
+
+        r = merge_sorted(right)
+        print(r)# [5] [2]
+        return merge(l, r)
+    else:
+        return arr
+
+
+def merge(left, right):
+    i = 0
+    j = 0
+    arr = []
+
+    while (i < len(left)) & (j < len(right)):
+        if left[i] < right[j]:
+            arr.append(left[i])
+            i += 1
+        else:
+            arr.append(right[j])
+            j += 1
+    # ㅇㅇㅇ
+    while (i < len(left)):
+        arr.append(left[i])
+        i += 1
+    #
+    while (j < len(right)):
+        arr.append(right[j])
+        j += 1
+
+    return arr
+
+
+arr = [3, 5, 1, 2, 9, 6, 4, 5, 7]
+print(merge_sorted(arr))

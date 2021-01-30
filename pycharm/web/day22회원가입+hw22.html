@@ -1,0 +1,357 @@
+
+<!--
+# 2.
+# 회원가입페이지 수정 및 추가
+# 1)signup버튼 클릭시 검증 작업 목록
+# - id는 6글자 이상 12글자 이하(숫자 문자 조합 가능, 반드시 문자로 시작)
+# - pw와 pw확인에서 동일한지 확인
+# - 취미가 몇개 선택되었는지 확인
+# (4개가 모두 선택된 경우에는 3개 이하로 선택하라는 경고메시지 출력->재체크)
+# -생년월일 입력한 뒤에 현재 나이에 마우스 포커스가 들어오면 자동으로 나이를 계산
+# 하여 출력
+# - 이메일 아이디 작성 규칙 검증(일반적인 규칙)
+# ex) 아이디에 올 수 없는 문자 :
+# @,#...특수문자가 올 수 없음, 길이를 12글자로 제한
+# - 전화번호 작성 규칙 검증
+# - 자기소개는 최소 10글자 이상 작성해야 함(10글자 미만인 경우 메시지 출력)
+-->
+
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script>
+
+    </script>
+</head>
+<body>
+    <script>
+
+finalcheck=function(){
+        var idbox=document.getElementById('id')
+        var pwbox1=document.getElementById('pw1')
+        var pwbox2=document.getElementById('pw2')
+        var checkset=document.getElementsByName('hobby')
+        var email=document.getElementById('email')
+        var res=document.getElementById('result')
+        var selfintro=document.getElementById('memo')
+
+
+
+            var reg1=/^[a-zA-Z가-힣][\w]{5,11}$/;
+            if (!reg1.exec(idbox.value)){
+            alert("id는 6글자 이상 12글자 이하(숫자 문자 조합 가능, 반드시 문자로 시작)");
+            idbox.value="";
+            idbox.focus();
+            colorchange(idbox,'red');
+                    return;
+            }
+
+
+            if (!pwbox1.value){
+            alert("패스워드를 입력하세요");
+            pwbox1.focus();
+            return;
+            }
+
+
+            if (pwbox1.value !== pwbox2.value){
+                alert("패스워드가 일치하지 않습니다");
+                pwbox1.value="";
+                pwbox2.value="";
+                pwbox1.focus();
+                return;
+                                          }
+
+
+
+            if(hob_list.length>3 || hob_list.length<1){
+            alert("주의:취미 선택은 1~3개 필수!");
+            hob_list=[];
+
+            var checks=document.getElementsByName('hobby');
+            for (i in checks){
+            checks[i].checked= false;}
+            return;
+            }
+
+
+            var regE=/^\w{6,12}$/;
+            if (!email.value.match(regE)){
+            alert("이메일에는 공백이나 국문,특수문자가 불가능");
+            email.value="";
+            email.focus();
+            return;
+                }
+
+            if(res.style.color!='blue'){
+            alert('자기소개를 10글자 이상(공백 미포함)입력해주세요');
+            selfintro.focus();
+            return;
+            }
+            alert("가입이 완료되었습니다.\nID:"+idbox.value+"\nPW:"+pwbox1.value);
+}
+
+
+
+        show=function(self){
+         var resbox=document.getElementById('result');
+         var regs=/[\S]/
+             if (!self.value){cnt=0;
+             resbox.innerHTML=cnt;}
+             else if(!self.value.match(regs)){cnt=0;
+             resbox.innerHTML=cnt;
+             }
+             else{
+              var regs=/[\S]/g;
+              cnt=self.value.match(regs).length
+             resbox.innerHTML=cnt;}
+        return cnt;
+         }
+        colorchange=function(obj,coltype){
+        obj.style.color=coltype;
+        }
+
+        checkintro=function(self){
+        var regE=/[^ ]$/g;
+
+        if(!self.value){
+        alert('자기소개를 10글자 이상(공백 미포함)입력해주세요');
+
+        }
+        else if(!self.value.match(/\s/g) && self.value.length<10)
+        {
+        alert('자기소개를 10글자 이상(공백 미포함)입력해주세요');
+        self.focus();
+
+
+        }
+        else if(self.value.length - self.value.match(/\s/g).length < 10)
+        {
+        alert('자기소개를 10글자 이상(공백 미포함)입력해주세요');
+        self.focus();
+
+
+        }
+
+
+        }
+
+        checkEmail=function(obj){
+        var regE=/^\w{6,12}$/;
+            if (!obj.value.match(regE)){
+            alert("이메일에는 공백이나 국문,특수문자가 불가능");
+            obj.value="";
+            obj.focus();
+        return false;
+
+
+            }
+            else{alert("인증번호가 발송되었습니다");
+            colorchange(obj,'blue');
+            var keys=document.querySelectorAll('#key');
+            for (i in keys){
+            keys[i].style.visibility='visible';}
+                    return true;
+
+            }
+        }
+
+
+
+        howage=function(){
+        var agebox=document.getElementById("age");
+        var birthbox=document.getElementById("birth");
+        var today=new Date();
+        agebox.value=today.getFullYear()-birthbox.value.substring(0,4)+1;
+
+        }
+
+
+
+        window.onload= function(){
+        var idbox=document.getElementById("id");
+        idbox.focus();
+        var target=document.querySelector('#link');
+        var comset=document.getElementById('url');
+        target.value=comset.options[comset.selectedIndex].value;
+        }
+        window.onload;
+
+        idcheck=function(){
+            var idbox=document.getElementById("id");
+            var pwbox1=document.getElementById("pw1");
+
+            var reg1=/^[a-zA-Z가-힣][\w]{5,11}$/;
+                if (!reg1.exec(idbox.value)){
+                alert("id는 6글자 이상 12글자 이하(숫자 문자 조합 가능, 반드시 문자로 시작)");
+                idbox.value="";
+                idbox.focus();
+                        return false;
+
+                }
+                else{
+                alert("사용 가능합니다.");
+                pwbox1.focus();
+                colorchange(idbox,'blue');
+
+
+                }
+        }
+
+        pwcheck= function(){
+            var pwbox1=document.getElementById("pw1");
+            var pwbox2=document.getElementById("pw2");
+            if (pwbox1.value !== pwbox2.value){
+                alert("패스워드가 일치하지 않습니다");
+                pwbox1.value="";
+                pwbox2.value="";
+                pwbox1.focus();
+                                          }
+            else{
+                alert("패스워드가 일치합니다");
+
+
+
+            }
+        }
+        hob_list=[];
+
+
+        more3=function(self){
+
+        hob_list.push(self.value);
+
+        if(hob_list.length>3){
+        alert("취미 선택은 3개까지 가능합니다");
+        hob_list=[]
+        var checks=document.getElementsByName('hobby');
+        for (i in checks){
+        checks[i].checked= false;}
+        }
+
+        }
+
+
+
+    </script>
+
+<form>
+    <fieldset>
+        <legend>회원가입</legend>
+        <table>
+            <tr>
+                <td>ID</td>
+                <td><input class="reset"type="text" id="id" name="id">
+                <input type="button" class="signup" value="아이디확인" onclick="idcheck()"></td>
+            </tr>
+            <tr>
+                <td>PW</td>
+                <td><input class="reset"type="password" id="pw1" name="pw1">
+                    PW확인<input class="reset"type="password" id="pw2" name="pw2">
+                <input type="button" class="signup" value="검증" onclick="pwcheck()"></td>
+            </tr>
+            <tr>
+                <td>성별</td>
+                <td><label>남자<input class="reset" type="radio"  value="남자" name="gender"></label>
+                    <label>여자<input class="reset" type="radio"  value="여자" name="gender"></label></td>
+
+            </tr>
+            <tr>
+                <td>취미</td>
+                <td >축구<input class="reset" type="checkbox" value="soc" name="hobby" onclick="more3(this)">
+                    농구<input class="reset"type="checkbox" value="bb" name="hobby" onclick="more3(this)">
+                    수영<input class="reset"type="checkbox" value="sw" name="hobby" onclick="more3(this)">
+                    야구<input class="reset"type="checkbox" value="ba" name="hobby" onclick="more3(this)">
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>생년월일</td>
+                <td><input class="reset"type="date" name="brith" id="birth" onmouseout="howage()"></td>
+
+            </tr>
+
+
+            <tr>
+                <td>현재 나이</td>
+                <td><input class="reset" type="text" name="age" id="age"></td>
+
+            </tr>
+
+
+            <tr>
+                <td>이메일</td>
+                <td><input class="reset" type="text" name="email" id="email">
+                @<input class="reset" type="text" id="link" readonly="readonly" value="">
+                    <input class="reset" type="text" id="selfemail"  value="" style="display:none;">
+                    <select class="reset" id='url' name="url" onchange="
+var target=document.querySelector('#link');
+target.value=this.options[this.selectedIndex].value;
+if (target.value=='self'){
+target.style.display='none';
+document.querySelector('#selfemail').style.display='inline';
+}
+else{
+target.style.display='inline';
+document.querySelector('#selfemail').style.display='none';
+
+}
+">
+                    <option value="naver.com" selected="selected">naver.com</option>
+                    <option value="daum.net">daum.net</option>
+                    <option value="gmail.com">gmail.com</option>
+                     <option id='self' value="self">직접 입력하기</option>
+
+                </select>
+                <input type="button" value="인증" onclick="
+                    var email=document.getElementById('email'); checkEmail(email);">
+                <input type="text" id="key" value="인증번호를 입력하세요." style="margin-left:30px; visibility:hidden;">
+                <input type="button" class="signup" value="확인" id="key" style="visibility:hidden;">
+                </td>
+
+            </tr>
+
+
+            <tr>
+                <td>자기소개</td>
+                <td><textarea class="reset" id="memo" rows="5" cols="50" onclick="this.innerHTML='';" oninput="show(this)
+                    if (cnt>=10){
+                    document.querySelector('#result').style.color='blue';
+                    }
+                    else{
+                    document.querySelector('#result').style.color='red';
+                    }
+                    ">공백제외 최소 10자 입력</textarea>
+                    <span>글자수:</span>
+                    <span class="signup" id="result" ></span>
+                </td>
+            </tr>
+
+
+            <tr>
+
+                <td colspan="2"><input type="button" id="signup" value="sign up" onclick="finalcheck();">
+               <input type="button" id="reset" value="reset" onclick="
+            var alltext=document.getElementsByClassName('reset');
+            for (i in alltext){
+            alltext[i].selected=false;
+            alltext[i].checked=false;
+
+            alltext[i].value='';
+
+
+            }
+
+
+
+">
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+</form>
+
+</body>
+</html>
