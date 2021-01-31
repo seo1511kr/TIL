@@ -48,6 +48,60 @@
 # 2 1 4 8 2
 # 8 6 7 5 0
 
+# from collections import deque
+# how=int(input())
+# import sys
+# board=deque()
+# for i in range(how):
+#     board.append(deque(map(int, sys.stdin.readline().rstrip().split(" "))))
+#
+# print(board)
+# # top-down방식으로 해보기
+#
+# #bfs 방식인듯
+# def howrout(board):
+#     N=len(board)
+#     route=deque()
+#     for i in range(N):
+#         route.append([])
+#         for j in range(N):
+#             route[i].append(0)
+#
+#     start_li=[[0,0]]
+#     import copy
+#     while len(start_li) >=1:
+#         # print("스타트포인트",start_li)
+#         # print("루트",route)
+#         dupli=copy.copy(start_li)
+#         for start in start_li:
+#             i=start[0]
+#             j=start[1]
+#             jump = board[i][j]
+#             dupli.remove(start)
+#             if i+jump<=N-1:
+#                 route[start[0]+jump][start[1]]+=1
+#                 new_startR=[i+jump,j]
+#                 dupli.append(new_startR)
+#             if j+jump<=N-1:
+#                 route[start[0]][start[1]+jump]+=1
+#                 new_startC=[i,j+jump]
+#                 dupli.append(new_startC)
+#         start_li=dupli
+#
+#     return route[N-1][N-1]
+#
+# print(howrout(board))
+
+
+
+
+
+
+
+
+
+
+
 #
 # n=int(input())
 # Board=[]
@@ -146,3 +200,43 @@
 #         return multiex(num)
 #     return multiex(num)
 # print(facto(5))
+
+
+
+
+import sys
+input = sys.stdin.readline
+def dfs(x, y):
+    if x == n - 1 and y == n - 1:
+        return 1
+    if dp[x][y] == -1:
+        dp[x][y] = 0
+        jump=s[x][y]
+        x1, y1 = x + jump, y
+        x2, y2 = x, y + jump
+        if x1 < n and y1 < n: dp[x][y] += dfs(x1, y1)
+        if x2 < n and y2 < n: dp[x][y] += dfs(x2, y2)
+    return dp[x][y]
+n = int(input())
+s = [list(map(int, input().split())) for i in range(n)]
+dp = [[-1] * n for i in range(n)]
+print(dfs(0, 0))
+
+
+import sys
+input = sys.stdin.readline
+def dfs(x, y):
+    if x == n - 1 and y == n - 1:
+        return 1
+    if dp[x][y] == -1:
+        dp[x][y] = 0
+        jump=s[x][y]
+        x1, y1 = x + jump, y
+        x2, y2 = x, y + jump
+        if x1 < n and y1 < n: dp[x][y] += dfs(x1, y1)
+        if x2 < n and y2 < n: dp[x][y] += dfs(x2, y2)
+    return dp[x][y]
+n = int(input())
+s = [list(map(int, input().split())) for i in range(n)]
+dp = [[-1] * n for i in range(n)]
+print(dfs(0, 0))
