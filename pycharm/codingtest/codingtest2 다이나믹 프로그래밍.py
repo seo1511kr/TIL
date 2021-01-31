@@ -187,7 +187,7 @@
 #     print(int(res))
 
 
-# ==>2. 동적프로그래밍, 재귀호출로 팩토리얼 만들기
+# ==>2. 동적프로그래밍, 메모이제이션 활용과 재귀호출로 팩토리얼 만들기
 # import sys
 # sys.setrecursionlimit(10**6)
 # def facto(num):
@@ -203,40 +203,103 @@
 
 
 
+# 1. 참고풀이
+# import sys
+# input = sys.stdin.readline
+# def dfs1(x, y):
+#     if x == n - 1 and y == n - 1:
+#         return 1
+#     if dp[x][y] == -1:
+#         dp[x][y] = 0
+#         jump=s[x][y]
+#         x1, y1 = x + jump, y
+#         x2, y2 = x, y + jump
+#         if x1 < n and y1 < n: dp[x][y] += dfs1(x1, y1)
+#         if x2 < n and y2 < n: dp[x][y] += dfs1(x2, y2)
+#     return dp[x][y]
+# n=5
+# s=[[2,2,1,2,1],[2,2,1,2,1],[1,2,1,2,1],[2,3,1,2,1],[2,2,1,2,0]]
+# dp = [[-1] * n for i in range(n)]
+# print(dfs1(0, 0))
 
-import sys
-input = sys.stdin.readline
-def dfs(x, y):
-    if x == n - 1 and y == n - 1:
+
+
+
+# 2. 직접풀이
+# # import sys
+# # input=sys.stdin.readline
+# # n=int(input())
+# # board=[list(map(int,input().split())) for i in range(n)]
+#
+# n=5
+# board=[[2,2,1,2,1],[2,2,1,2,1],[1,2,1,2,1],[2,3,1,2,1],[2,2,1,2,0]]
+# print(board)
+#
+# dp=[[-1]*n for i in range(n)]
+# print(dp)
+# start=[0,0]
+# def dfs(start):
+#     x = start[0]
+#     y = start[1]
+#     if x ==n-1 and y==n-1:
+#         return 1
+#     if dp[x][y] ==-1:
+#         dp[x][y]=0
+#         print(x)
+#         print(y)
+#         print("="*50)
+#         jump=board[x][y]
+#         dx=[0,jump]
+#         dy=[jump,0]
+#         col_move=[x+dx[1],y+dy[1]]
+#         row_move=[x+dx[0],y+dy[0]]
+#         if col_move[0] < n and col_move[1] < n:
+#             dp[x][y]+=dfs(col_move)
+#
+#         if row_move[0] < n and row_move[1] < n:
+#             dp[x][y]+=dfs(row_move)
+#     return dp[x][y]
+#
+# print(dfs(start))
+# print(dp)
+
+
+
+
+
+
+
+
+n=5
+board=[[2,2,1,2,1],[2,2,1,2,1],[1,2,1,2,1],[2,3,1,2,1],[2,2,1,2,0]]
+print(board)
+
+dp=[[-1]*n for i in range(n)]
+print(dp)
+start=[0,0]
+def dfs(start):
+    x = start[0]
+    y = start[1]
+    if x ==n-1 and y==n-1:
         return 1
-    if dp[x][y] == -1:
-        dp[x][y] = 0
-        jump=s[x][y]
-        x1, y1 = x + jump, y
-        x2, y2 = x, y + jump
-        if x1 < n and y1 < n: dp[x][y] += dfs(x1, y1)
-        if x2 < n and y2 < n: dp[x][y] += dfs(x2, y2)
-    return dp[x][y]
-n = int(input())
-s = [list(map(int, input().split())) for i in range(n)]
-dp = [[-1] * n for i in range(n)]
-print(dfs(0, 0))
+    if dp[x][y] ==-1:
+        dp[x][y]=0
+        print(x)
+        print(y)
+        print("="*50)
+        jump=board[x][y]
+        dx=[0,jump]
+        dy=[jump,0]
+        col_move=[x+dx[1],y+dy[1]]
+        row_move=[x+dx[0],y+dy[0]]
+        if col_move[0] < n and col_move[1] < n:
+            dp[x][y]+=dfs(col_move)
+
+        if row_move[0] < n and row_move[1] < n:
+            dp[x][y]+=dfs(row_move)
+    return dp[x][y] #===>메모이제이션 활용...
+
+print(dfs(start))
+print(dp)
 
 
-import sys
-input = sys.stdin.readline
-def dfs(x, y):
-    if x == n - 1 and y == n - 1:
-        return 1
-    if dp[x][y] == -1:
-        dp[x][y] = 0
-        jump=s[x][y]
-        x1, y1 = x + jump, y
-        x2, y2 = x, y + jump
-        if x1 < n and y1 < n: dp[x][y] += dfs(x1, y1)
-        if x2 < n and y2 < n: dp[x][y] += dfs(x2, y2)
-    return dp[x][y]
-n = int(input())
-s = [list(map(int, input().split())) for i in range(n)]
-dp = [[-1] * n for i in range(n)]
-print(dfs(0, 0))
