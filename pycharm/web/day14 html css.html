@@ -1,0 +1,333 @@
+<!--# 알고리즘의 핵심
+# greedy
+# backtraking
+# dp(dynamic programming)
+요즘은 테이블 태그보다 css를 활용한 div 태그가 더 많이 쓰이긴 함
+table> (thead), (tbody) > tr > td(th)
+	테이블의 제목을 나타내는 <thead>는 td대신 th로 짝짓기
+
+===================================================================================
+셀병합시 사용되는 태그들 행:rowspan 열:colspan
+
+<style>
+    table{
+    border: 1px solid #ff0000;
+    border-collapse:collapse;
+        }
+    th,td{
+    border: 1px solid #0000ff;
+    }
+</style>
+<meta charset="UTF-8">
+<table>
+    <thead>
+		<tr>
+			<th>학교</th>
+			<th>창립년도</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>서울대학교</td>
+			<td>1946</td>
+		</tr>
+		<tr>
+			<td>고려대학교</td>
+			<td>1905</td>
+		</tr>
+		<tr>
+			<td>연세대학교</td>
+			<td>1885</td>
+
+		</tr>
+	</tbody>
+</table>&ndash;&gt;
+=================================================================
+<table>
+<thead>
+<tr><th>제목:</th><th>퀴즈</th></tr>
+</thead>
+<tbody>
+<tr><td>c1</td><td>c2</td></tr>
+<tr><td>c3</td><td>c4</td></tr>
+</tbody>
+</table>
+=================================================================-->
+<!--<html>
+<head>
+<meta charset="EUC-KR">
+<title>초간단 테이블</title>
+</head>
+<body>
+    <table border="2" bordercolor="blue" width="600px" height="600px">
+	<th>테이블</th>
+	<th>만들기</th>
+	<tr align="center">&lt;!&ndash; 첫번째 줄 시작 &ndash;&gt;
+	    <td bgcolor="red" rowspan="2">첫번째 칸</td>
+	    <td>두번째 칸</td>
+	</tr>&lt;!&ndash; 첫번째 줄 끝 &ndash;&gt;
+	<tr bgcolor="skyblue">&lt;!&ndash; 두번째 줄 시작 &ndash;&gt;
+	    <td>두번째 칸</td>
+	</tr>&lt;!&ndash; 두번째 줄 끝 &ndash;&gt;
+    </table>
+</body>
+</html>-->
+
+
+<!--html>
+<head>
+<meta charset="EUC-KR">
+<title>초간단 테이블</title>
+</head>
+<body>
+    <table border="2" bordercolor="blue" width="100%" height="30%">
+	<th>테이블</th>
+	<th>만들기</th>  &lt;!&ndash;th태그는 가운데 정렬이 default&ndash;&gt;
+	<tr align="right">&lt;!&ndash; 첫번째 줄 시작 &ndash;&gt;
+        <td colspan="2">합쳐진칸</td>
+        <td rowspan="2">로우</td>
+	    <td>첫번째 칸</td>
+	    <td>두번째 칸</td>
+	</tr>&lt;!&ndash; 첫번째 줄 끝 &ndash;&gt;
+	<tr>&lt;!&ndash; 두번째 줄 시작 &ndash;&gt;
+	    <td>두번째 칸</td>
+	</tr>&lt;!&ndash; 두번째 줄 끝 &ndash;&gt;
+    </table>
+</body>
+</html>-->
+
+<!--
+
+<div style="background-color: yellow">구역1</div>
+<div style="width: 100px; height:100px;background-color: #F0B27A">구역2</div>
+<div style="width: 100px; height:100px;background-color: green">구역3</div>
+<div style="width: 100px; height:100px;background-color: red">구역4</div>
+<span style="background-color: yellow">구역1</span>
+<span style="background-color: #F0B27A; width: 300px">구역2</span>
+<span style="background-color: green">구역3</span>
+<span style="background-color: red">구역4</span>
+
+
+<ol>
+    <li>목록</li>
+    <li>목록</li>
+    <li>목록</li>
+    <li>목록</li>
+
+</ol>
+<ul>
+    <li>목록</li>
+    <li>목록</li>
+    <ol><li>목록2-1</li><li>목록2-2</li></ol>
+    <li>목록</li>
+    <li>목록</li>
+
+</ul>-->
+
+<!--<html>
+<head>
+    <title>제목</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="노트북, 컴퓨터, 주변기기">
+    <meta name="description" content="컴퓨터 판매 페이지입니다.">
+    <meta name="robots" content="all">
+&lt;!&ndash;페이지 정보를 제공(페이지 설명, 키워드, 제작자, 크롤링 정책)을 제공 &ndash;&gt;
+&lt;!&ndash;키워드는 검색엔진의 길잡이가 되기 때문에 중요함&ndash;&gt;
+&lt;!&ndash;실행시 화면에 출력되지 않음. 숨어있는 태그
+title,meta, link, style, script&ndash;&gt;
+</head>
+</html>
+
+
+한국어 인코딩 방식: euc-kr, utf-8
+euc-kr: ascii(1byte)+한글만 확장 사용 => 2byte
+utf-8: 보편화된 인코딩 다른나라 언어도 가능-->
+
+<!--
+<meta charset="UTF-8">
+<form>
+&lt;!&ndash;클라이언트에서 작성한 문서를 서버로 전송하는 양식을 만드는 태그&ndash;&gt;
+	<p>
+		<strong>아이디</strong>
+		<input type="text" name="name" value="아이디 입력">
+	</p>
+	<p>
+		<strong>비밀번호</strong>
+		<input type="password" name="password" value="비밀번호 입력">
+	</p>
+	<p>
+		<strong>성별</strong>
+		<input type="radio" name="gender" value="M">남자
+		<input type="radio" name="gender" value="F">여자
+	</p>
+	<p>
+		<strong>응시분야</strong>
+		<input type="checkbox" name="part" value="eng">영어
+		<input type="checkbox" name="part" value="math">수학
+	</p>
+    <select>
+        <option value="ktx">ktx</option>
+        <option value="새마을">새마을</option>
+        <option value="무궁화">무궁화</option>
+
+    </select>
+	<p>
+		<input type="submit" value="제출">
+	</p>
+</form>-->
+
+<!--
+css: 웹페이지에 출력할 내용과 스타일(표현방식)을 분리하기 위해 생겨남
+태그들에게 스타일 효과를 적용하는 언어
+css 작성 3가지 방법
+선택자: 어떤 태그들에게 스타일을 적용할 것인지 정의하기 위한 문법
+ex)
+선택자{
+속성1:값;
+속성2:값;
+...
+}
+css 선택자 종류(3가지) : 태그, id(#), class(.)
+
+1)html문서의 style 속성
+2)style 태그 활용하기
+3)css문서를 별도로  만들어 놓은 다음, html 문서에 포함시키는 방법
+<head>
+&lt;!&ndash;my text라는 이름의 클래스로 묶인 내용의 글자 색상을 파랑색으로 설정&ndash;&gt;
+    <style type="text/css">
+        .my-text{color:blue}
+    </style>
+</head>
+<div class="my-text"> this is blue</div>
+<div style="color:red">문서입니다</div>
+<head></head>-->
+
+<!--
+
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+        h5{color:#F00;}
+        h6{color:#00F; font-size: 20px}
+        #mybox{background-color: #09c; width:200px; height:50px}
+        .yourbox{border: 2px solid green}
+    </style>
+
+</head>
+<body>
+    <h4>h4태그</h4>
+    <h5>h5태그</h5>
+    <h6>h6태그</h6>
+    <div id="mybox">mybox id로 정의된 스타일</div>
+    <div class="yourbox">yourbox class로 정의된 스타일</div>
+
+</body>
+</html>-->
+
+
+<!--부모 자식 선택자-->
+<!--선택자1, 선택자2{속성1:속성값; 속성2:속성값;}-->
+<!--부모 태그 하위에 있는 자식 태그에 스타일을 적용-->
+<!--
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            div.yello_box{background-color:yellow;}
+            div.yello_box span{background-color:skyblue;}
+            div#c_box span{text-align:center; padding:10px; color:green;}
+
+        </style>
+    </head>
+<div class="yello_box">div태그 yellow_box 부분입니다</div>
+<div class="yello_box">
+    <span>
+    div태그 yellow_box span부분입니다
+    </span>
+</div>
+<div id="c_box">
+    <span>div태그 class c_box span부분입니다</span>
+</div>
+</html>
+-->
+
+<!--
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+
+        div.blue_span span{
+        background-color:blue;
+        }
+        .aa > .cc{background-color:yellow}
+        .xx .yy{background-color:skyblue}
+    </style>
+</head>
+<div class="blue_span"><span>이 영역은 퀴즈에 해당합니다</span></div>
+
+
+&lt;!&ndash;꺽쇠를 쓴경우&ndash;&gt;
+<div class="aa">
+    <div class="cc">
+        aa와 cc클래스에서 꺽쇠는 부모 자식간에 직접적인 관계가 있다
+    </div>
+</div>
+<div class="aa">
+    <div class="bb">
+        <div class="cc">
+            aa와 cc클래스사이에 bb클래스가 있음
+             (부모 자식 사이에 다른 클래스가 존재)
+        </div>
+    </div>
+</div>
+
+
+&lt;!&ndash;꺽쇠를 안쓴경우&ndash;&gt;
+<div class="xx">
+    <div class="yy">
+        xx yy클래스에서 꺽쇠는 부모 자식간에 직접적인 관계가 있다
+    </div>
+</div>
+<div class="xx">
+    <div class="kk">
+    <div class="yy">
+        xx yy클래스에서 꺽쇠는 부모 자식간에 직접적인 관계가 있다
+    </div>
+    </div>
+</div>-->
+
+
+<!--다중 조건 선택자: AND, OR-->
+
+<!--and조건
+선택자 사이에 공백이 없으면 여러 선택자들을 동시에 만족하는 태그에 대해 스타일 적용
+태그이름#아이디{}
+태그이름.클래스명{}
+.클래스#아이디{}
+...-->
+
+<!--
+or조건
+쉼표로 여러 선택자 중 어느 하나 이상의 선택자 조건을 만족하는 태그에 대해 스타일 적용
+#아이디, .클래스명{}
+태그이름, .클래스명{}-->
+<html>
+<meta charset="UTF-8">
+    <head>
+        <style>
+            div#m_box{color:blue;}
+            div.box{color:red;}
+            div, .box{color:skyblue;}
+
+        </style>
+    </head>
+<div id="m_box">mbox</div>
+<div class="box">box</div>
+<div>div태그</div>
+
+
+
+</html>
