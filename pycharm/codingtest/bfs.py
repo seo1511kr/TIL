@@ -1,5 +1,5 @@
-dfs와 거의 동일하지만 큐자료구조의 원리를 이용해야함
-list의 pop(0)을 활용하면 가능함
+# dfs와 거의 동일하지만 큐자료구조의 원리를 이용해야함
+# list의 pop(0)을 활용하면 가능함
 n=5
 board=[[2,2,1,2,1],[2,2,1,2,1],[1,2,1,2,1],[2,3,1,2,1],[2,2,1,2,0]]
 
@@ -9,7 +9,7 @@ def dfs(start):
     tovisit.append(start)
 
     while tovisit:
-        node=tovisit.pop()
+        node=tovisit.pop(0)
         x, y = node[0], node[1]
         jump=board[x][y]
         if node not in visited:
