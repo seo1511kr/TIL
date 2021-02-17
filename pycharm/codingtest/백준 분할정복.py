@@ -21,33 +21,33 @@
 
 #1. 분할
 
-a='''
-11110000
-11110000
-00011100
-00011100
-11110000
-11110000
-11110011
-11110011
-'''
-import math
-# import sys
-# N=int(input())
-# board=[sys.stdin.readline().strip().split() for j in range(N)]
-N=8
-board=a.a.strip().split('\n')
-for i in range(N):
-print(a.strip().split('\n'))
+import sys
+N=int(input())
+board=[sys.stdin.readline().strip() for j in range(N)]
 
-groups=N/2
-for i in range(groups):
-    x,y=2*i
-    start=board[x][y]
+
 def zip(board):
-    dx=[1,0,-1]
-    dy=[0,1,0]
+    groups=int(len(board)/2)
+    if groups<1:return board
+    dx=[0,0,1,1]
+    dy=[0,1,0,1]
     new_board=[]
-    for i in range(groups):
-        for j in range(3):
-            board[2*i][2*i]
+    for row in range(groups):
+        row_zipped=[]
+        for col in range(groups):
+            zipped=[]
+            for move in range(4):
+                x=2*row
+                y=2*col
+                zipped.append(board[x+dx[move]][y+dy[move]])
+                if zipped.count(zipped[0])==4:
+                    if (zipped[0] == '1') or (zipped[0] == '0'):
+                        zipped=zipped[0]
+            row_zipped.append(zipped)
+        new_board.append(row_zipped)
+    return zip(new_board)
+
+a=zip(board)[0][0]
+
+import re
+print(''.join(re.findall('[\\[\d\\]]',str(a))).replace('[','(').replace(']',')'))
