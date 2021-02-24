@@ -304,3 +304,4 @@ product
 
 product$price<-as.numeric(product$price)
 str(product)
+

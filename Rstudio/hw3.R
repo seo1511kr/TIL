@@ -213,7 +213,7 @@ BTS<-c(5,4,1.5)
 Æ®¿ÍÀÌ½º<-c(3.5,4,5)
 eval<-data.frame(BTS,¼ÕÈï¹Î,·¹µåº§ºª,Æ®¿ÍÀÌ½º)
 rownames(eval)<-cate
-Udist¼ÕÈï¹Î<-colSums((eval-¼ÕÈï¹Î)^2)
-
+Udist¼ÕÈï¹Î<-sqrt(colSums((eval-¼ÕÈï¹Î)^2))
+Udist¼ÕÈï¹Î
 mindist<-min(Udist¼ÕÈï¹Î[-2])
 which(Udist¼ÕÈï¹Î[-2]==mindist)
