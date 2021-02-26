@@ -1,0 +1,4 @@
+id name price
+A001 Mouse 30000
+A002 Keyboard ´©¶ô
+A003 ¸ô¶ó 50000
