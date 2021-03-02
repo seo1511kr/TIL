@@ -199,6 +199,9 @@ read.table('data/product-missing.txt',header=T,na.strings=c('누락','몰라'))
 # 주석문 무시
 read.table('data/product-comment.txt',header=T)
 
+#comment.char=''옵션으로 주석도 출력하기
+read.table('data/product-comment.txt',sep=',',header=T,comment.char = '')
+
 # csv를 read.table로 불러올 때 sep=','사용해야함
 read.table('data/brand-eval.csv',header=T)
 read.table('data/brand-eval.csv',header=T,sep=',')
@@ -228,7 +231,7 @@ iris.uci
 #2.local에 저장하기
 download.file(url=url,destfile = 'data/myIris.csv')
 
-#zip파일 압축해제, unzip(file,저장이름)함수
+#3. zip파일 압축해제, unzip(file,저장이름)함수
 url<-"http://seanlahman.com/files/database/baseballdatabank-master_2016-03-02.zip"
 local.copy<-'baseball.zip'
 download.file(url,local.copy)
