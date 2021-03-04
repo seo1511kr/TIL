@@ -200,13 +200,3 @@ print("안녕",end="^_^");print("하세요") #안녕^_^하세요
 
 # map 은 list 나 set 형태로 표현할 수 있음
 
-#질문: map의 객체는 1회성인가요??
-# 밑의 두 결과의 차이를 모르겠습니다!
-# x = map(int, "5")
-# print(list(x))
-# x = map(int, "5") #다시 x를 지정해주지 않으면 공백의 set이 나옴
-# print(set(x))
-#
-# x={5}
-# print(list(x))
-# print(set(x)) #다시 x를 지정해주지 않아도 됨

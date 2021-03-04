@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88366c17-79e9-4ec4-8645-5006c8344a92" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/python/hw/hw25유클리드호제법.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../algo/재귀호출과 하노이탑.md" beforeDir="false" afterPath="$PROJECT_DIR$/../algo/재귀호출과 하노이탑.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../django/가상환경생성,장고설치.md" beforeDir="false" afterPath="$PROJECT_DIR$/../django/가상환경생성,장고설치.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../django/가상환경생성,장고설치.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../django/가상환경생성,장고설치.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jupyter/AI/.ipynb_checkpoints/pandas1 example-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jupyter/AI/.ipynb_checkpoints/pandas2 example-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jupyter/AI/pandas1 example.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jupyter/AI/pandas2 example.ipynb" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/codingtest/프로그래머스.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rstudio/.RData" beforeDir="false" afterPath="$PROJECT_DIR$/../Rstudio/.RData" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rstudio/.Rhistory" beforeDir="false" afterPath="$PROJECT_DIR$/../Rstudio/.Rhistory" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rstudio/day1.R" beforeDir="false" afterPath="$PROJECT_DIR$/../Rstudio/day1.R" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codingtest/백준 정렬.py" beforeDir="false" afterPath="$PROJECT_DIR$/codingtest/백준 정렬.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/day1.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/day1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,11 +43,11 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
-  <component name="RunManager" selected="Python.hw25유클리드호제법 (1)">
-    <configuration name="백준 재귀" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.day1">
+    <configuration name="프로그래머스" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pycharm" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -63,7 +59,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/codingtest/백준 재귀.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/codingtest/프로그래머스.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -72,7 +68,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="백준 사칙연산" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="day1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pycharm" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -80,53 +76,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/codingtest" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/codingtest/백준 사칙연산.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="백준1890 dfs" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="pycharm" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/codingtest" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/codingtest/백준1890 dfs.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="bfs" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="pycharm" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/codingtest" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/codingtest/bfs.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python/day1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -200,11 +154,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.day1" />
+        <item itemvalue="Python.프로그래머스" />
         <item itemvalue="Python.hw25유클리드호제법 (1)" />
         <item itemvalue="Python.hw25유클리드호제법" />
         <item itemvalue="Python.dfs" />
-        <item itemvalue="Python.bfs" />
-        <item itemvalue="Python.백준1890 dfs" />
       </list>
     </recent_temporary>
   </component>
