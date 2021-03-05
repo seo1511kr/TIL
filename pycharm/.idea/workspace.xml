@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88366c17-79e9-4ec4-8645-5006c8344a92" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/codingtest/프로그래머스.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rstudio/.RData" beforeDir="false" afterPath="$PROJECT_DIR$/../Rstudio/.RData" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rstudio/.Rhistory" beforeDir="false" afterPath="$PROJECT_DIR$/../Rstudio/.Rhistory" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rstudio/day1.R" beforeDir="false" afterPath="$PROJECT_DIR$/../Rstudio/day1.R" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/day1.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/day1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
