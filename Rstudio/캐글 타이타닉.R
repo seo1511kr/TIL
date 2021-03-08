@@ -446,3 +446,6 @@ write.csv(submis,paste('data/',cscore,'.csv',sep=''),row.names = F)
 
 # 재난메시지-> 단어 단위로 분할-> 표에 작성->
 
+
+
+
