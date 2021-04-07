@@ -14,7 +14,7 @@ download.file(url=url,destfile = 'data/mushroom.csv')
 # 9. gill-color: black=k,brown=n,buff=b,chocolate=h,gray=g, green=r,orange=o,pink=p,purple=u,red=e, white=w,yellow=y
 # 10. stalk-shape: enlarging=e,tapering=t
 # 11. stalk-root: bulbous=b,club=c,cup=u,equal=e, rhizomorphs=z,rooted=r,missing=?
-#   12. stalk-surface-above-ring: fibrous=f,scaly=y,silky=k,smooth=s
+# 12. stalk-surface-above-ring: fibrous=f,scaly=y,silky=k,smooth=s
 # 13. stalk-surface-below-ring: fibrous=f,scaly=y,silky=k,smooth=s
 # 14. stalk-color-above-ring: brown=n,buff=b,cinnamon=c,gray=g,orange=o, pink=p,red=e,white=w,yellow=y
 # 15. stalk-color-below-ring: brown=n,buff=b,cinnamon=c,gray=g,orange=o, pink=p,red=e,white=w,yellow=y
@@ -27,28 +27,29 @@ download.file(url=url,destfile = 'data/mushroom.csv')
 # 22. habitat: grasses=g,leaves=l,meadows=m,paths=p, urban=u,waste=w,woods=d
 
 mush<-read.csv('data/mushroom.csv',na.string='?',header = F)
+
 colnames(mush)<-c('label','cap-shape','cap-surface','cap-color','bruises?',
-                  'odor','gill-attachment','gill-spacing','gill-spacing',
+                  'odor','gill-attachment','gill-spacing',
                   'gill-size','gill-color','stalk-shape','stalk-root',
-                  'stalk-surface-above-ring','stalk-color-above-ring',
+                  'stalk-surface-above-ring','stalk-surface-below-ring','stalk-color-above-ring',
                   'stalk-color-below-ring','veil-type','veil-color','ring-number',
                   'ring-type','spore-print-color','population','habitat')
 str(mush)
 
-#전처리(결측값)stalk-shape
+#전처리(결측값)stalk-root
 library(Amelia)
 missmap(mush,col=c('red','blue'))
-idx<which(names(mush)=='stalk-shape')
-N_na<-nrow(mush[is.na(mush[,'stalk-shape']),-idx])
-target<-t(mush[!is.na(mush[,'stalk-shape']),-idx])
+idx<which(names(mush)=='stalk-root')
+N_na<-nrow(mush[is.na(mush[,'stalk-root']),-idx])
+target<-t(mush[!is.na(mush[,'stalk-root']),-idx])
 Na_predict<-c()
 for(i in 1:N_na){
-  na_sample<-unlist(mush[is.na(mush[,'stalk-shape']),-idx][i,,drop=T])
+  na_sample<-unlist(mush[is.na(mush[,'stalk-root']),-idx][i,,drop=T])
   ans<-target==na_sample
   similar_idx<-as.numeric(sort(colSums(ans),decreasing = T)[1:5])
   Na_predict<-c(Na_predict,names(sort(table(mush[similar_idx,idx]),decreasing = T))[1])
 }
-mush[is.na(mush[,'stalk-shape']),idx]<-Na_predict
+mush[is.na(mush[,'stalk-root']),idx]<-Na_predict
 sum(!complete.cases(mush))
 
 
